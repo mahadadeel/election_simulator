@@ -31,6 +31,8 @@ def get_game():
     # Find sid in games
     if sid not in games:
         games[sid] = ElectionGame()
+    
+    return games[sid]
 
 # Home page
 @app.route("/")
