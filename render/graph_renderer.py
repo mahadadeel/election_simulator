@@ -305,13 +305,20 @@ class GraphRenderer:
             xaxis=dict(visible=False),
             yaxis=dict(visible=False),
 
-            width=600,
+            autosize=True,
             height=600,
+            margin=dict(
+                l=0,
+                r=0,
+                t=50,
+                b=0
+            ),
 
             paper_bgcolor="rgba(0,0,0,0)",
             plot_bgcolor="rgba(0,0,0,0)",
 
             dragmode=False,
+            uirevision=True,
 
             updatemenus=[
                 dict(
@@ -363,6 +370,19 @@ class GraphRenderer:
                     visible=False
                 )
             ]
+        )
+
+        fig.update_xaxes(
+            visible=False,
+            fixedrange=True,
+            constrain="domain"
+        )
+
+        fig.update_yaxes(
+            visible=False,
+            fixedrange=True,
+            scaleanchor="x",
+            scaleratio=1
         )
 
         return fig
@@ -566,8 +586,14 @@ class GraphRenderer:
             xaxis=dict(visible=False),
             yaxis=dict(visible=False),
 
-            width=600,
+            autosize=True,
             height=600,
+            margin=dict(
+                l=0,
+                r=0,
+                t=50,
+                b=0
+            ),
 
             paper_bgcolor="rgba(0,0,0,0)",
             plot_bgcolor="rgba(0,0,0,0)",
@@ -580,6 +606,7 @@ class GraphRenderer:
             ),
 
             dragmode=False,
+            uirevision=True,
 
             updatemenus=[
 
@@ -611,6 +638,19 @@ class GraphRenderer:
                     xanchor="center"
                 )
             ]
+        )
+
+        fig.update_xaxes(
+            visible=False,
+            fixedrange=True,
+            constrain="domain"
+        )
+
+        fig.update_yaxes(
+            visible=False,
+            fixedrange=True,
+            scaleanchor="x",
+            scaleratio=1
         )
 
         return fig
@@ -716,16 +756,35 @@ class GraphRenderer:
             xaxis=dict(visible=False),
             yaxis=dict(visible=False),
 
+            autosize=True,
             height=500,
-            width=500,
 
-            margin=dict(l=0, r=0, t=0, b=0),
+            margin=dict(
+                l=0,
+                r=0,
+                t=0,
+                b=0
+            ),
 
             paper_bgcolor="rgba(0,0,0,0)",
             plot_bgcolor="rgba(0,0,0,0)",
 
-            dragmode=False
+            dragmode=False,
+            uirevision=True,
 
+        )
+
+        fig.update_xaxes(
+            visible=False,
+            fixedrange=True,
+            constrain="domain"
+        )
+
+        fig.update_yaxes(
+            visible=False,
+            fixedrange=True,
+            scaleanchor="x",
+            scaleratio=1
         )
 
         return fig
@@ -766,10 +825,10 @@ class GraphRenderer:
         fig.update_layout(
             height=250,
             margin=dict(
-                l=10,
-                r=10,
-                t=10,
-                b=10
+                l=5,
+                r=5,
+                t=5,
+                b=5
             ),
 
             showlegend=False,
@@ -868,8 +927,14 @@ class GraphRenderer:
 
         fig.update_layout(
             showlegend=False,
-            margin=dict(l=10, r=10, t=10, b=10),
-            height=250
+            autosize=True,
+            height=250,
+            margin=dict(
+                l=5,
+                r=5,
+                t=5,
+                b=5
+            )
         )
 
         return fig
@@ -955,10 +1020,15 @@ class GraphRenderer:
         fig.update_layout(
             showlegend=False,
 
+            autosize=True,
             height=275,
-            width=275,
 
-            margin=dict(l=30, r=30, t=0, b=0),
+            margin=dict(
+                l=10,
+                r=10,
+                t=5,
+                b=5
+            ),
 
             paper_bgcolor="rgba(0,0,0,0)",
             plot_bgcolor="rgba(0,0,0,0)"
@@ -967,7 +1037,6 @@ class GraphRenderer:
         return fig, running_total, majority_party
 
     # Function to simulate a 'live voteshare' graph
-    # Running total is the 
     def live_voteshare_graph(
         self,
         running_total
@@ -1049,16 +1118,22 @@ class GraphRenderer:
             )
         
         fig.update_layout(
-            width=300,
+            autosize=True,
             height=250,
 
-            margin=dict(l=50, r=50, t=20, b=20),
+            margin=dict(
+                l=20,
+                r=20,
+                t=20,
+                b=20
+            ),
 
             xaxis=dict(
                 visible=False
             ),
 
             dragmode=False,
+            uirevision=True,
 
             yaxis=dict(
                 visible=True,
