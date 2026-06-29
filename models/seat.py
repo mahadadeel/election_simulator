@@ -37,7 +37,7 @@ class Seat:
 
     # Predict who would win the seat
     # Input is all the parties
-    def predict(self, parties, gamma=1.5):
+    def predict(self, parties, gamma=1.3):
         # Dictionary to store the scores of each party
         scores = {}
 

@@ -256,6 +256,13 @@
 
 <script>
 
+// Code to refit map
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    window.dispatchEvent(new Event("resize"));
+  }, 10);
+});
+
 // Code for beginning count
 let countingInterval = null;
 

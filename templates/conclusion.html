@@ -429,6 +429,12 @@ window.addEventListener("load", function () {
     window.scrollTo(0, 0);
 });
 
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    window.dispatchEvent(new Event("resize"));
+  }, 10);
+});
+
 </script>
 
 <script>

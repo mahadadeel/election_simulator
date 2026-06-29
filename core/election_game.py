@@ -21,7 +21,7 @@ class ElectionGame:
     _TARGET_END_VOTESHARE = [35.0, 15.0, 25.0, 25.0]
 
     # Karma cap
-    _KARMA_CAP = 6.0
+    _KARMA_CAP = 5.0
 
     # File handling
     _CORE_DIR = Path(__file__).resolve().parent
@@ -354,7 +354,7 @@ class ElectionGame:
     # Method to apply karma to political parties
     def _apply_karma(
         self,
-        flat=0.8,
+        flat=1.0,
         exp=0.6,
         steep=1.6
     ):
