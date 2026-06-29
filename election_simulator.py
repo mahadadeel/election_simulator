@@ -5,6 +5,8 @@ import logging
 import webbrowser
 from threading import Timer
 
+import os
+
 from core.election_game import ElectionGame
 
 import uuid
@@ -17,6 +19,10 @@ election_game = ElectionGame()
 
 # Define app
 app = Flask(__name__)
+app.config["SECRET_KEY"] = os.getenv(
+    "SECRET_KEY",
+    "development-secret-key"
+)
 
 # Function to manage games
 def get_game():
