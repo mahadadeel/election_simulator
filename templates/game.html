@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Election Campaign Trail</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #afdaff;
+            font-family: Arial, sans-serif;
+        }
+
+        .page {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .panel {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+
+
+        .top-form {
+            margin-bottom: 20px;
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .form-options {
+            width: 80%;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-option {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            gap: 10px;
+        }
+
+        .form-option label:hover {
+            font-weight: bold;
+        }
+
+        .form-option label {
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            display: block;
+            margin: 15px auto 0 auto;
+            padding: 8px 16px;
+            border: none;
+            background: #4a90e2;
+            color: white;
+            border-radius: 5px;
+            width: auto;
+        }
+
+        
+
+        .main-grid {
+            display: flex;
+            gap: 15px;
+        }
+
+        .center-panel {
+            width: 50%;
+            height:650px;
+        }
+
+        .right-column {
+            flex: 1;
+
+            display: flex;
+            flex-direction: column;
+
+            gap: 20px;
+        }
+
+        .right-panel {
+            flex: 1;
+        }
+
+        .voteshare-seats-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+
+            width: 100%;
+            height: 100%;
+        }
+
+        .voteshare-box {
+            flex: 1;
+        }
+
+        .parliament-box {
+            flex: 1;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .map-box {
+            height: auto;
+        }
+
+        .js-plotly-plot,
+        .plotly {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .js-plotly-plot,
+        .js-plotly-plot * {
+            cursor: default !important;
+        }
+
+        .vote-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .party-name {
+            font-weight: 500;
+        }
+
+        .vote-value {
+            font-weight: bold;
+        }
+
+        .voteshare-panel h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .archetype-key {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .archetype-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .archetype-swatch {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            display: inline-block;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .archetype-label {
+            color: #333;
+        }
+
+        .plot-wrapper {
+            position: relative;
+        }
+
+        .key-overlay {
+            position: absolute;
+            top: 60px;
+            left: 15px;
+
+            width: 180px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+
+            padding: 8px;
+            z-index: 10;
+
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+
+            transition: all 0.2s ease;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .key-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-weight: bold;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+
+        .key-overlay.minimised .key-body {
+            display: none;
+        }
+
+        .key-overlay.minimised {
+            width: 120px;
+        }
+
+        #key-minimise-btn {
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
+
+            font-size: 14px;
+            line-height: 1;
+            cursor: pointer;
+
+            color: #666;
+            width: 16px;
+            height: 16px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #key-minimise-btn:hover {
+            color: #000;
+        }
+
+        .outline-toggle {
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        #outline-toggle-checkbox {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        .outline-overlay {
+            position: absolute;
+
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            background: rgba(255, 255, 255, 0.9);
+            padding: 6px 10px;
+
+            border: 1px solid #ddd;
+            border-radius: 6px;
+
+            z-index: 20;
+
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+            font-size: 12px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0, 0, 0, 0.4);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            z-index: 999;
+        }
+
+        .overlay-box {
+            background: white;
+            padding: 20px 25px;
+
+            width: 500px;
+            border-radius: 10px;
+
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .trend-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+
+            margin-bottom: 10px;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="panel top-form">
+
+        <div class="form-title">
+            ({{ turn }}/{{ max_turn }})
+            {{ turn_data.text }}
+        </div>
+
+        <div class="form-options">
+
+        {% for choice in turn_data.choices %}
+
+            <div class="form-option">
+
+                <input
+                    type="radio"
+                    id="choice-{{ loop.index0 }}"
+                    name="turn-choice"
+                    value="{{ loop.index0 }}"
+                >
+
+                <label for="choice-{{ loop.index0 }}">
+                    {{ choice.answer }}
+                </label>
+
+            </div>
+
+        {% endfor %}
+
+        </div>
+
+        <div style="text-align:center; margin-top:10px;">
+            <button id="step-btn" class="submit-btn">
+                Submit
+            </button>
+        </div>
+
+    </div>
+
+    <div class="main-grid">
+
+        <div class="panel center-panel map-box">
+            <div class="plot-wrapper">
+
+                {{ plot|safe }}
+
+                <div id="outline-btn-container" class="hidden outline-overlay">
+                    <label class="outline-toggle">
+                        <input type="checkbox" id="outline-toggle-checkbox">
+                        Winning Party Outline
+                    </label>
+                </div>
+
+                <div id="archetype-key-container" class="key-overlay hidden minimised">
+                    <div class="key-header">
+                        <span>Key</span>
+                        <button id="key-minimise-btn">–</button>
+                    </div>
+
+                    <div class="key-body">
+                        {{ archetype_key|safe }}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="right-column">
+
+            <div class="panel right-panel">
+
+                <div class="voteshare-seats-row">
+
+                    <div class="voteshare-box">
+                        {{ voteshare|safe }}
+                    </div>
+
+                    <div id="seats-view" class="parliament-box">
+                        {{ parliament|safe }}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="panel right-panel">
+
+                <div class="trend-title">
+                    Voting Intention Over Turns
+                </div>
+
+                <div id="polls-view">
+                    {{ trend_plot|safe }}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="advisor-overlay" class="overlay hidden">
+
+    <div class="overlay-box">
+
+        <h3>Advisor Feedback</h3>
+
+        <div id="advisor-content">
+            The cabinet has reviewed your decision.
+        </div>
+
+        <button id="advisor-ok-btn" class="submit-btn">
+            OK
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+// Scripts to turn to next turn
+
+// Button handling for selecting an option
+document.getElementById("step-btn").addEventListener("click", async function() {
+
+    // Get selected item
+    const selected =
+        document.querySelector(
+            'input[name="turn-choice"]:checked'
+        );
+
+    if (!selected) {
+        return;
+    }
+
+    // Send submitted choice and await feedback
+    const res = await fetch(
+        "/submit_choice",
+        {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                choice: parseInt(selected.value)
+            })
+        }
+    );
+
+    const data = await res.json();
+
+    // Update advisor content
+    document.getElementById(
+        "advisor-content"
+    ).innerText = data.advisor_feedback;
+
+    // Display advisor content
+    document.getElementById(
+        "advisor-overlay"
+    ).style.display = "flex";
+});
+
+// Button handling for next turn
+document.getElementById("advisor-ok-btn").addEventListener("click", async function() {
+
+    // Hide advisor overlay
+    document
+        .getElementById("advisor-overlay")
+        .style.display = "none";
+
+    // Step election
+    const res = await fetch("/step", {
+        method: "POST"
+    });
+
+    // Await data
+    const data = await res.json();
+
+    // If election done, send call to run final election
+    if (data.done) {
+        window.location.href = "/election";
+        return;
+    } else {
+        // Otherwise reload
+        location.reload();
+    }
+});
+
+</script>
+
+<script>
+
+// Start at top of page when loading
+window.addEventListener("load", function () {
+    window.scrollTo(0, 0);
+});
+
+</script>
+
+<script>
+
+// Plotly graph showing options for winning outlines and archetype key in demographics view
+document.addEventListener("DOMContentLoaded", function () {
+
+    const plot = document.querySelector('.js-plotly-plot');
+    const key = document.getElementById("archetype-key-container");
+    const outline = document.getElementById("outline-btn-container");
+
+    if (!plot || !key || !outline) return;
+
+    // Show or hide Key and Outline toggles if swapping to/from demographics view
+    const observer = new MutationObserver(() => {
+
+        const data = plot.data;
+
+        if (!data || data.length < 2) return;
+
+        const demographicsTrace = data[1];
+        const isDemographicsVisible = demographicsTrace.visible !== false;
+
+        if (isDemographicsVisible) {
+            key.classList.remove("hidden");
+        } else {
+            key.classList.add("hidden");
+        }
+
+        if (isDemographicsVisible) {
+            outline.classList.remove("hidden");
+        } else {
+            outline.classList.add("hidden");
+        }
+    });
+
+    observer.observe(plot, {
+        childList: true,
+        subtree: true,
+        attributes: true
+    });
+});
+
+// Showing and hiding outline and key
+document.addEventListener("DOMContentLoaded", function () {
+
+    const plot = document.querySelector('.js-plotly-plot');
+    const key = document.getElementById("archetype-key-container");
+    const outlineContainer = document.getElementById("outline-btn-container");
+    const outlineCheckbox = document.getElementById("outline-toggle-checkbox");
+
+    if (!plot || !key || !outlineContainer || !outlineCheckbox) return;
+
+    const DEMO_INDEX = 1;
+
+    // Helper function sets outline between two states (thickness 2 or 0 for on and off)
+    function setOutline(state) {
+        Plotly.restyle(plot, {
+            "marker.line.width": state ? 2 : 0
+        }, [DEMO_INDEX]);
+    }
+
+    // Checkbox interaction
+    outlineCheckbox.addEventListener("change", function () {
+        setOutline(this.checked);
+    });
+
+    const observer = new MutationObserver(() => {
+
+        const data = plot.data;
+        if (!data || data.length < 2) return;
+
+        const isDemographicsVisible = data[1].visible !== false;
+
+        // Show/hide UI only in demographics mode
+        if (isDemographicsVisible) {
+            key.classList.remove("hidden");
+            outlineContainer.classList.remove("hidden");
+        } else {
+            key.classList.add("hidden");
+            outlineContainer.classList.add("hidden");
+        }
+    });
+
+    observer.observe(plot, {
+        childList: true,
+        subtree: true,
+        attributes: true
+    });
+
+    // Default disable outline
+    setOutline(false);
+});
+
+// Toggle for showing archetype key
+document.addEventListener("DOMContentLoaded", function () {
+
+    const key = document.getElementById("archetype-key-container");
+    const btn = document.getElementById("key-minimise-btn");
+
+    if (!key || !btn) return;
+
+    // Minimise toggle
+    btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        key.classList.toggle("minimised");
+
+        btn.innerText = key.classList.contains("minimised") ? "+" : "–";
+    });
+
+});
+
+</script>
+
+<script>
+
+// Reset turn choices so none is selected at start
+window.addEventListener("load", function () {
+
+    document
+        .querySelectorAll('input[name="turn-choice"]')
+        .forEach(radio => {
+            radio.checked = false;
+        });
+
+});
+
+</script>
+
+</body>
+</html>

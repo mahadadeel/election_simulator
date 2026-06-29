@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Can You Win An Election?</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #afdaff;
+            font-family: Arial, sans-serif;
+        }
+
+        .page {
+            width: 80%;
+            padding-left: 10%;
+            padding-top: 20px;
+        }
+
+        .panel {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-sizing: border-box;
+            width: 100%;
+            text-align: center;
+            height: 700px;
+        }
+
+        .submit-btn {
+            display: block;
+            margin: 15px auto 0 auto;
+            padding: 8px 16px;
+            border: none;
+            background: #4a90e2;
+            color: white;
+            border-radius: 5px;
+            width: auto;
+            font-size: 18px;
+        }
+
+        .submit-btn:disabled {
+            background: #919191;
+            cursor: not-allowed;
+        }
+
+        .opening-blurb {
+            font-size: 18px;
+            width: 80%;
+            padding-left: 10%;
+        }
+
+        .warning {
+            color: red;
+        }
+
+        .tooltip-term {
+            position: relative;
+            display: inline-block;
+            background: #cfe8ff;
+            color: #003366;
+            padding: 0 4px;
+            border-radius: 3px;
+            cursor: help;
+            transition: background-color 0.15s ease;
+        }
+
+        .tooltip-term:hover {
+            background: #4a90e2;
+            color: white;
+        }
+
+        .tooltip-text {
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+
+            width: 280px;
+            padding: 10px 12px;
+
+            background: #1f2937;
+            color: white;
+            font-size: 0.9rem;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 1.4;
+            text-align: left;
+
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease;
+
+            z-index: 1000;
+        }
+
+        .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            border-width: 6px;
+            border-style: solid;
+            border-color: #1f2937 transparent transparent transparent;
+        }
+
+        .tooltip-term:hover .tooltip-text {
+            opacity: 1;
+            visibility: visible;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="panel">
+
+        <h1 style="margin: 5px">Can You Win This Parliamentary Election?</h1>
+        <h3 style="margin: 5px; padding-bottom: 15px"><i>An Election Simulator Modelling Structural Inequality and the Rise of Political Extremism</i></h3>
+
+        <hr>
+
+        <p class="opening-blurb">
+            You are the leader of the <b>Liberal Party</b>, an establishment, centre-left political party. After over decade of being out of power to the <b>Conservative Party</b>, you have finally won an election and now have a <b>parliamentary majority</b>.
+        </p>
+
+        <p class="opening-blurb">
+            You were elected on a simple mandate: <b>Change</b>.
+        </p>
+
+        <p class="opening-blurb">
+            However, the challenges your country faces are immense. A decade of
+            <span class="tooltip-term">
+                <b>austerity</b>
+                <span class="tooltip-text">
+                    Economic policy to reduce budget deficit through public spending and benefits cuts, pay restraint, and outsourcing public utilities to private providers.
+                </span>
+            </span>
+            has left public services crumbling. Wages fall far below the cost of living, housing is in short supply with high demand, the job market is stretched, and private companies owning public utilities like water, energy, and transport have squeezed consumers dry.
+        </p>
+
+        <p class="opening-blurb">
+            <b>The Top 10% of the population own more Wealth than the Bottom 50%.</b>
+        </p>
+
+        <p class="opening-blurb">
+            The people feel impoverished and are demand material change, but the many political and economic decisions leading to these circumstances are <b>deeply systemically embedded</b>. It is an overwhelming challenge to guide policy out of this inequality, but <b>what you were elected for</b>.
+        </p>
+
+        <p class="opening-blurb">
+            <b>Can you govern your way to re-election</b> in 20 turns, while fending off challenges<br>
+            from the far-right <b>Alternative Party</b> and the progressive-left <b>Green Party</b>?
+        </p>
+
+        <button id="start-btn" class="submit-btn">
+            <b>Start Game</b>
+        </button>
+
+        <p class="opening-blurb">
+            <i>
+                Every time you start this game, the election map is randomly generated.<br>
+                Elections are run using a
+                <span class="tooltip-term">
+                    First Past The Post
+                    <span class="tooltip-text">
+                        All seats are directly elected and single-choice. The winner only needs the most votes, even if they fall short of a majority.
+                    </span>
+                </span>
+                parliamentary system,<br>
+                <span class="warning"><b>so results aren't proportional</b></span>, and
+                <span class="warning">vote-splitting causes huge seat losses</span>.
+            </i>
+        </p>
+
+
+    </div>
+
+</div>
+
+<script>
+
+// Function to start game
+
+document.getElementById("start-btn").addEventListener("click", async function () {
+
+    const btn = this;
+
+    // Disable button and state game is loading
+    btn.disabled = true;
+    btn.innerHTML = "<b>Loading...</b>";
+
+    // Await fetch to reset game
+    const res = await fetch("/reset_game", {
+        method: "POST"
+    });
+
+    // Wait for success
+    const data = await res.json();
+
+    // Return if success
+    if (data.success) {
+        window.location.href = '/game'
+    }
+});
+
+</script>
+
+</body>
+</html>

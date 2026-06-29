@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Election Results</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #afdaff;
+            font-family: Arial, sans-serif;
+        }
+
+        .page {
+            width: 80%;
+            padding-left: 10%;
+            padding-top: 20px;
+        }
+
+        .panel {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 700px;
+            width: 100%;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0, 0, 0, 0.4);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            z-index: 999;
+        }
+
+        .overlay-box {
+            background: white;
+            padding: 20px 25px;
+
+            width: 320px;
+            border-radius: 10px;
+
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+
+            text-align: center;
+        }
+
+        .submit-btn {
+            display: block;
+            margin: 15px auto 0 auto;
+            padding: 8px 16px;
+            border: none;
+            background: #4a90e2;
+            color: white;
+            border-radius: 5px;
+            width: auto;
+        }
+
+        .results-panel {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            height: 550px;
+        }
+
+        .chart-left {
+            flex: 2;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .chart-right {
+            flex: 1;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+        #count-progress-container {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        #count-progress-label {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+
+            background: #e6e6e6;
+            border-radius: 6px;
+
+            overflow: hidden;
+        }
+
+        #count-progress-fill {
+            height: 100%;
+            width: 0%;
+
+            background: #1ee100;
+            transition: width 0.6s ease;
+        }
+
+        .js-plotly-plot,
+        .js-plotly-plot * {
+            cursor: default !important;
+        }
+
+        #finish-btn:disabled {
+            background: #b5b5b5;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        #finish-btn {
+            cursor: default;
+        }
+
+        #finish-btn:enabled {
+            cursor: pointer;
+        }
+
+        .chart-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .chart-label {
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="panel">
+
+        <div id="count-progress-container">
+
+            <div id="count-progress-label">
+                Votes Counted: 0%
+            </div>
+
+            <div class="progress-bar">
+                <div id="count-progress-fill"></div>
+            </div>
+
+        </div>
+
+        <div class="panel results-panel">
+
+            <div class="chart-left" id="map-container">
+                {{ plot|safe }}
+            </div>
+
+            <div class="chart-right">
+
+                <div id="parliament-container-wrapper" class="chart-block">
+    
+                    <div class="chart-label">
+                        Declared Seats
+                    </div>
+
+                    <div id="parliament-container">
+                        {{ parliament|safe }}
+                    </div>
+
+                </div>
+
+                <div id="voteshare-container-wrapper" class="chart-block">
+
+                    <div class="chart-label">
+                        Predicted Vote Share
+                    </div>
+
+                    <div id="voteshare-container">
+                        {{ voteshare|safe }}
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <button id="finish-btn" class="submit-btn" disabled>
+            Finish
+        </button>
+    
+    </div>
+
+</div>
+
+<div id="advisor-overlay" class="overlay">
+
+    <div class="overlay-box">
+
+        <h3>Advisor Feedback</h3>
+
+        <div id="advisor-content">
+            Election Night is here. Let's watch the results unfold!
+        </div>
+
+        <button id="advisor-ok-btn" class="submit-btn">
+            Start
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+// Code for beginning count
+let countingInterval = null;
+
+// After selecting advisor ok, then run election
+document.getElementById("advisor-ok-btn").addEventListener("click", function () {
+
+    // Hide advisor overlay
+    document.getElementById("advisor-overlay").style.display = "none";
+
+    // Set current step to 0
+    currentStep = 0;
+
+    // Run election first step
+    runElectionStep();
+
+});
+
+let baseDelay = 1000;
+let maxDelay = 5000;
+let currentStep = 0;
+
+const mapDiv = document.querySelector("#map-container .js-plotly-plot");
+const parliamentDiv = document.querySelector("#parliament-container .js-plotly-plot");
+const voteshareDiv = document.querySelector("#voteshare-container .js-plotly-plot");
+
+const finishBtn = document.getElementById("finish-btn");
+
+async function runElectionStep() {
+
+    // Count votes and get data back
+    const res = await fetch("/count_votes", {
+        method: "POST"
+    });
+
+    const data = await res.json();
+
+    // Update map
+    if (mapDiv) {
+        Plotly.react(
+            mapDiv,
+            data.figure.data,
+            data.figure.layout
+        );
+    }
+
+    // Update parliament
+    if (parliamentDiv) {
+        Plotly.react(
+            parliamentDiv,
+            data.parliament.data,
+            data.parliament.layout
+        );
+    }
+
+    // Update voteshare
+    if (voteshareDiv) {
+        Plotly.react(
+            voteshareDiv,
+            data.voteshare.data,
+            data.voteshare.layout
+        );
+    }
+
+    // Progress text
+    const label = document.getElementById("count-progress-label");
+    const fill = document.getElementById("count-progress-fill");
+
+    if (label) {
+        label.innerText = "Votes Counted: " + data.count_percentage + "%";
+    }
+
+    if (fill) {
+        fill.style.width = data.count_percentage + "%";
+    }
+
+    if (data.majority_event) {
+
+        // Prevent duplicate popups
+        if (!window.__majorityShown) {
+
+            window.__majorityShown = true;
+
+            const overlay = document.createElement("div");
+            overlay.className = "overlay";
+
+            overlay.innerHTML = `
+                <div class="overlay-box">
+                    <h3>BREAKING NEWS</h3>
+                    <p>The ${data.majority_event} has won a majority of seats in parliament!</p>
+                    <button id="majority-ok" class="submit-btn">Continue</button>
+                </div>
+            `;
+
+            document.body.appendChild(overlay);
+
+            document.getElementById("majority-ok")
+                .addEventListener("click", () => {
+                    overlay.remove();
+                });
+        }
+    }
+
+    // Stop condition
+    if (data.finished) {
+
+        if (finishBtn) {
+            finishBtn.disabled = false;
+        }
+
+        return;
+    }
+
+    currentStep++;
+
+    let t = currentStep / 20;
+
+    // Timeout duration increases over steps for suspense
+    let delay =
+        baseDelay +
+        (maxDelay - baseDelay) * Math.pow(t, 2);
+
+    setTimeout(runElectionStep, delay);
+}
+
+</script>
+
+<script>
+
+// Finish button handling
+document.addEventListener("DOMContentLoaded", function () {
+
+    const finishBtn = document.getElementById("finish-btn");
+
+    if (finishBtn) {
+        finishBtn.addEventListener("click", function () {
+            window.location.href = "/conclusion";
+        });
+    }
+});
+
+</script>
+
+<script>
+
+window.addEventListener("load", function () {
+    window.scrollTo(0, 0);
+});
+
+</script>
+
+</body>
+</html>

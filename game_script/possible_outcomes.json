@@ -1,0 +1,46 @@
+{
+  "Liberal Party": {
+    "Liberal Party": {
+      "Alternative Party": [
+        "A New Dawn. You've achieved an unbelievable political comeback. You fought a campaign against a political extreme that benefitted from decades of structural inequality culminating in the rapid normalisation of their rhetoric of hate and division. Despite that, you chose to tackle the systemic inequalities in society, adopting a progressive vision to equalise against economic and social injustices, and renewed the trust of voters to bring you a second majority to govern. Will your second term also see substantial reforms to make society more equitable, or, with the Alternative now legitimised as the official opposition, are you just biding time for them to take power in the next election? Even then, you have earned something precious in the fight against structural inequality: time. A second term may not reverse all the structural inequalities of society, but more time to undo it with another majority, you have the mandate to respond, and the means to do so."
+      ]
+    }
+  },
+  "None": {
+    "Liberal Party": {
+      "Alternative Party": [
+        "Obstructing Fascism. Your campaign fought hard, and despite enormous structural inequalities restricting your capacity to govern, you still came out first in the seat count. However, you have lost your majority. You upheld your coalition as best as you could, and even if enough voters trusted you over the Alternative, not enough put their faith in you to win a majority. The next term of government will be unstable: its possible you could reach across the aisle to pass legislation, but the Alternative is very unlikely to support any of your policy. It seems the likeliest outcome is another election in the coming years to overcome legislative gridlock, and if the Alternative takes advantage of the frustration and inability to tackle the issues that matter in society, your prospects of victory seem uncertain. Even then, you delayed their absolute takeover, which is an accomplishment in and of itself."
+      ]
+    },
+    "Alternative Party": {
+      "Liberal Party": [
+        "Watered-Down Fascism. This was always going to be a difficult election to win, and it's a miracle you prevented the Alternative from winning an outright majority. Still, you have been reduced to official opposition, while the Alternative, although short of the votes to pass their entire agenda, could rely on the Conservatives to enact watered-down policy. At the very least, we can hope no one in your party crosses the aisle to support them. Still, this loss has ignited a blame-game on why, and one issue that speaks to you is timidness to tackle structural inequalities head-on. Some members of your party are threatening a leadership challenge, unless you resign voluntarily. That is all to be seen. We can only hope the far-right don't damage the country as much if they're forced to compromise. Your party could mount a comeback in the next election, but for now you'll be returning as opposition, and your party will be asking difficult questions on what to do next."
+      ],
+      "Green Party": [
+        "An Unstable Political Re-Alignment. The cabinet is silent as the full picture materialises. On the bright side, the Alternative party fell short of a majority. On the other hand, the Greens overtook you as official opposition. It's a sight that's difficult to behold and immediately leads to party infighting. Progressives argue this loss was inevitable without bold, systemic policy, while moderates shift the blame at not standing up to the 'radical' ideas of the Green party. After a few days of shifting blame, you decide to take the fall for the loss and announce your resignation as party leader. The Liberals sit in the back of government as the Greens sit in your place as the opposition party. Without a majority, the Alternative is forced to concede some of their more radical policy to get it through government, and the Greens enjoy the political spotlight as their biggest obstacle, while coverage and support of your party slowly fades into the background. At the very least, history will forget the role you played in your party's electoral decline."
+      ]
+    },
+    "Green Party": {
+      "Alternative Party": [
+        "Greens on the Cusp. At first, it's hard to believe. But as the results finalise, the fears actualise, and for many moderates in your party, its their worst nightmare. Despite falling short of a majority, the Greens become the biggest party in government, while the opposition falls to the Alternative. Progressives see this as an enormous victory as they jump ship to join the Greens and their vast promises of structural reform and tackling inequality, as the proven winners capable of dismantling the divisionary rhetoric of the Alternative. They face an extremely difficult job in passing their agenda, and will have to rely on Liberal votes to get anything done. Meanwhile, your party is scrambling to find its response. Some pragmatists recommend supporting the Green government while being the liberal business anchor, while some party conservatives demand a rightward shift to respond to progressive tyranny. No matter what, they all agree on one thing: you won't be the person leading them through this crisis of reputation."
+      ]
+    }
+  },
+  "Alternative Party": {
+    "Alternative Party": {
+      "Liberal Party": [
+        "Far-Right Takeover. This was always going to be a difficult election to win, and many saw an Alternative majority as inevitable. It still does not prevent the fallout of the final tally. The far-right agenda of scapegoating, hatred, and simple solutions to deeply complex structural inequalities won. At the very least, your party will arrive parliament as official opposition, but your MPs are bloodthirsty, and the first person they blame is you. Your leadership is likely to come to an end as the party desperately finds their strategy to oppose the Alternative. Whether this will result in your party changing course to systemic issues, or simply blaming the Alternative for all of society's problems and not being more introspective about structural inequality, is to be seen."
+      ],
+      "Green Party": [
+        "A New Political Alignment. Shock and horror falls on the faces of your most loyal supporters, cabinet members, and MPs as not only the Alternative Party claims a majority, but the Greens overtake your seat count and replace you as the official opposition. For your party, this is an extinction-level defeat. Unionists and progressive action groups turn away from you to back the Greens, while businesses jump to Alternative as the 'lesser evil'. The Greens capitalise off this success, positioning themselves as the new progressive voice against the politics of hate and division, pledging to dismantle the roots of structural inequality from society. The day after your election you announce your resignation as party leader, unprompted. It's up to your party now to scramble together to respond to this loss. The Liberals still have a huge funding backlog, but the party treasury is unsure how long that'll last as your donor and income channels turn to the Greens as the new opposition to the Alternative. The political realignment of this election will be remembered throughout history, and you as the leader that led your party to obliteration."
+      ]
+    }
+  },
+  "Green Party": {
+    "Green Party": {
+      "Alternative Party": [
+        "Mandate for Progressivism. When you came into power, many people thought if you failed, it would be the Conservatives or even the Alternative who came into power after you. Instead, you've exceeded all expectations as the leader of the centre-left, and somehow led the progressive Greens to a majority. It's an outcome that has confused party moderates to the schadenfreude of progressives, who are quick to swear loyalty in helping the Greens pass their bold agenda of rapid structural realignment. You'll have to see whether they run into the same constraints you did, or whether they actually accomplish a revolution against an unjust society. Either way, your time as leader of the party is over, and in your place there will be a vicious leadership contest on whether to oppose or embrace the Greens. At least history will remember this extraordinary political realignment, and leftists will thank you for your contributions to get them in charge."
+      ]
+    }
+  }
+}

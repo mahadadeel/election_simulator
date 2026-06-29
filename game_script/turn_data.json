@@ -1,0 +1,824 @@
+{
+  "turns": [
+    {
+      "turn": 1,
+      "text": "Fresh off your election success, you stand before your podium. The country awaits your first words as Prime Minister. What will you emphasise in your maiden speech to the nation?",
+      "choices": [
+        {
+          "answer": "Let me make it clear: I am not just the leader of my party, but the leader of a nation. A nation of many interests, many voices, and many perspectives. I promise to build bridges and work with the opposition to enact common-sense policy that reflects the will of the nation.",
+          "response": "Your pledge to govern for the whole country reassures moderates and business leaders nervous about political instability.\nHowever, many voters did not elect you for consensus. They voted for change. Trade unions, campaign groups, and younger voters are already asking what you intend to do with your majority.",
+          "result": [
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        },
+        {
+          "answer": "My election marks the decisive end of a decade of scandals, crises, and incompetent governance. The Conservatives left this country in the gutter, selling us lies while pursuing their own interests. I vow, first of all, to restore credibility to the government.",
+          "response": "The speech lands well with voters exhausted by years of scandal and dysfunction.\nAlthough by focusing on the failures of the previous government, you reinforce an expectation that improvement should come quickly. The public is hungry, and patience may prove a scarce resource.",
+          "result": [
+            -0.2,
+            -0.4,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "answer": "Friends, you elected us on a simple message: Change. Together, we will enact systemic change. Our government, with its outstanding majority, will end decades of privatisation, reverse government policy designed only to benefit a small elite, and make the system work for You, not the few, again.",
+          "response": "Activists, unions, and reform-minded voters are energised by your promise of sweeping change. Expectations are now soaring.\nThat said, years of underinvestment, privatisation, and widening inequality cannot be reversed overnight, and voters may not prove forgiving if progress is slow.",
+          "result": [
+            0.0,
+            0.0,
+            0.3,
+            -0.1
+          ]
+        },
+        {
+          "answer": "It’s a brand new day. This election was hard fought, but now is the time to breathe a sigh of relief and look forward to the next chapter of our nation. I invite you all to put a book-end to our past and shine forth towards tomorrow.",
+          "response": "The hopeful tone is welcomed after years of political turmoil.\nYet beneath the optimism lies a country facing stagnant wages, expensive housing, strained public services, and deep regional inequalities.\nThe honeymoon period has begun, but will it last long?",
+          "result": [
+            0.0,
+            0.0,
+            0.1,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "text": "It’s time to select your cabinet. As you appoint new people to the highest positions in government, what will you look for in your nominations?",
+      "choices": [
+        {
+          "answer": "We can’t take bold risks with the challenges our nation faces. We need to focus on expertise. My nominations will forward experts in their field, safe but sensible nominees.",
+          "response": "Your cabinet is filled with respected economists, policy experts, and experienced administrators.\nMarkets respond positively and the media praises the government’s professionalism.\nHowever, critics on the left warn that the experts you selected reflect the same status-quo institutionalism that created today’s housing shortages, weakened labour protections, and strained public services.",
+          "result": [
+            0.0,
+            0.0,
+            -0.3,
+            0.2
+          ]
+        },
+        {
+          "answer": "In an age of inequality, diversity is the answer. My nominations will forward the most diverse cabinet of all time, and bring in as many black voices, minority representatives, and women possible.",
+          "response": "Your cabinet becomes one of the most representative in the nation’s history. Progressives welcome seeing institutions that better resemble the society they govern.\nYet representation alone does not resolve rising rents, stagnant wages, or overstretched public services. Opponents dismiss the appointments as symbolic politics, while supporters begin expecting substantive reforms to follow.",
+          "result": [
+            0.0,
+            0.2,
+            0.1,
+            -0.2
+          ]
+        },
+        {
+          "answer": "To address the problems in society, we need bold, radical voices. I will throw curveballs and nominate activists and fringe voices you wouldn’t expect in government, to bring forward outsider ideas.",
+          "response": "Several of your nominees come from trade unions, tenant advocacy groups, environmental campaigns, and anti-poverty organisations. Their appointments energise younger voters and reform-minded activists who believe government has become detached from ordinary people.\nCorporate executives, major newspapers, and political opponents quickly condemn your nominations. Fierce confirmation battles with party moderates representing business groups forces compromise, but most of your nominations get through. Still, some supporters worry the party will retreat from its promise of transformation after prolonged infighting over nominations.",
+          "result": [
+            0.0,
+            0.3,
+            0.3,
+            -0.3
+          ]
+        },
+        {
+          "answer": "This is the first time we’re in power in over a decade! We need to award our loyalist MPs for our victory. I will forward experienced voices in the party, who have been lining up for this job for many elections now.",
+          "response": "Experienced party figures take the key posts with no friction in their appointment. Their familiarity with parliament and government machinery allows legislation to move efficiently, and internal disputes remain limited.\nHowever, progressives and anti-establishment critics are upset, arguing the same political class that presided over decades of housing shortages, regional decline, and economic insecurity is rotating back into office under a different banner.",
+          "result": [
+            0.2,
+            0.0,
+            -0.5,
+            0.3
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "text": "Your first meeting with the treasury paints a grim picture: decades of institutionalised spending commitments combined with various economic shocks including the pandemic and supply-chain constraints from the war in Ukraine and the Middle East has left the nation with an alarming budget deficit.\nTreasury officials warn this deficit is not merely the result of recent crises, but decades of low wage growth, underinvestment in infrastructure, bailing out privatised utilities, and expensive commitments to outside contractors has left a financial ‘black hole’.\nFinancial markets want reassurance, but voters are already feeling squeezed. How will your government respond?",
+      "choices": [
+        {
+          "answer": "There is no easy way about this. Together, we need to burden the costs of fiscal responsibility by raising taxes. We’ll focus the bulk of the taxation on top earners, including a 2% millionaire tax, but, unfortunately, all brackets should embrace for tax increases.",
+          "response": "Economists broadly welcome the budget as a serious attempt to stabilise public finances, and increased taxation on wealthier households raises substantial revenue.\nHowever, even modest increases on middle-income earners proves politically unpopular. Moreover, the deeper causes behind the deficit, including stagnating productivity, soaring privatisation costs, and decades of regional economic decline are yet to be addressed. The state’s finances improve, but voters must see improvement to their daily lives.",
+          "result": [
+            0.1,
+            0.3,
+            -0.4,
+            -0.2
+          ]
+        },
+        {
+          "answer": "Now, more than ever, we need smart but difficult fiscal decisions. Our last government spent year after year wasting funds on expensive outsider contracts instead of investing in the public good. My administration will crack down on bloat and costly private contractors to free up funds. Order a full-scale review of our agencies and funding priorities to find and squash waste.",
+          "response": "The review identifies genuine inefficiencies and some costly private-sector contracts inherited from previous administrations. However, decades of budget restraint have already removed easy savings.\nAs officials search for further reductions, disability support, local government services, and education programmes increasingly find themselves under pressure.\nProgressives oppose further cuts, arguing that years of underinvestment created many of today’s problems, and further cuts risk deepening them.",
+          "result": [
+            0.0,
+            0.0,
+            0.0,
+            0.3
+          ]
+        },
+        {
+          "answer": "We need to grow the economy, and for that we need investment. The government should take out loans to support and encourage growth in our vital industries. Cut down on corporate tax and tariffs. If our industries prosper, jobs will follow suit, and productivity will return to sustainable levels.",
+          "response": "Investors respond positively and several industries announce expansion plans. Economic growth steadily recovers, creating new jobs and improving business confidence.\nYet much of the new wealth concentrates in already prosperous regions and sectors. Housing costs continue to rise faster than wages, and many workers find that economic growth does not translate into greater financial security. The headline figures improve faster than people’s lived experiences.",
+          "result": [
+            0.2,
+            0.0,
+            0.1,
+            0.2
+          ]
+        },
+        {
+          "answer": "Our society has become deeply unproductive. Too many people feel they are working harder while receiving less in return. We will reform welfare programmes to encourage employment, reduce dependency, and ensure public support is focused on those most willing to contribute.",
+          "response": "This messaging gives red meat to conservative-minded supporters looking for simple solutions as to why life feels harder than it used to and blaming benefits-dependent households for economic stagnation. Welfare spending falls modestly and there is a slight rise in employment.\nHowever, the savings are far smaller than promised, while poverty and insecurity increases amongst vulnerable groups. Researchers point to housing costs, low wages, and insecure work as the larger drivers of economic hardship, but those explanations struggle to compete with an anti-benefits narrative that offers a visible group to blame.",
+          "result": [
+            0.1,
+            0.0,
+            -0.4,
+            0.4
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "text": "Housing has become a defining issue for a generation. Decades of underbuilding, rising land value, property speculation, restrictive planning laws, and the treatment of housing as an investment asset have driven prices far beyond wage growth. Young people are increasingly locked out of home ownership, while renters face rising costs and insecurity. How will your administration tackle the housing crisis?",
+      "choices": [
+        {
+          "answer": "Government after government has fallen into the same trap of trying to endlessly build more houses without addressing the fundamental inequality of who owns the houses. Our government will take back ownership of homes from housing monopolies and landlords, tax unlived homes, and bring empty homes back to the market.",
+          "response": "Younger voters, tenant organisations, and housing campaigners welcome the proposals as a serious attempt to undo decades of speculation that turned homes into financial assets rather than places to live.\nHowever, homeowners, landlords, property developers, and financial institutions mobilise against the reforms. Many MPs represent constituencies where rising property values are seen as a source of personal wealth and security.\nAfter months of lobbying and parliamentary infighting, some of the most progressive ambitions are left out of the final package, but your provisions still push for the significant reintroduction of empty homes to the market, even if the broader structure of housing ownership remains largely intact.",
+          "result": [
+            0.0,
+            0.2,
+            0.5,
+            -0.2
+          ]
+        },
+        {
+          "answer": "We need to build, and we need to build fast. We will work with private construction contractors and housing distributors to rapidly expand infrastructure. If we want to supercharge housing, we need to axe regulations and red tape – ending bureaucracy, allowing development in green spaces, and getting as many houses out there as possible will keep the market competitive.",
+          "response": "Construction firms welcome the reforms, arguing that increased supply is the only sustainable solution to the housing crisis. Planning approvals rise sharply and several major developments break ground. However, housing shortages accumulated over decades cannot be solved within a few years.\nEnvironmental opposition slows projects, labour shortages affect construction, and most developments take years to complete. Despite building tens of thousands of new homes, many remain unlived because renters continued to be priced out and the new homes reinforce the dependencies many have to landlords and housing monopolies.",
+          "result": [
+            0.1,
+            0.0,
+            -0.3,
+            0.3
+          ]
+        },
+        {
+          "answer": "Long-term solutions to address decades of underbuilding and rising housing prices will be costly and expensive to implement, but we can mitigate the downstream effects to offer people relief today. We will strengthen renters’ rights, restrict unfair evictions, improve housing standards, and expand support for first-time buyers.",
+          "response": "Tenant organisations welcome the reforms and many renters experience greater security. Evictions fall and housing conditions improve modestly. Yet the underlying shortage remains unresolved.\nHouse prices continue rising faster than income, and many younger voters become increasingly convinced that the political system is managing the housing crisis rather than solving it. Green politicians begin attracting support by arguing that deeper reforms are necessary.",
+          "result": [
+            0.2,
+            0.1,
+            -0.3,
+            0.4
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "text": "The State-Funded Nationalised Healthcare is under crisis, with hospitals seeing record waiting-lists. An ageing population, chronic staff shortages, burnout, and years of underinvestment have left the healthcare system struggling to meet demand.\nEmergency departments are overcrowded, social care services are stretched thin, and public confidence is beginning to erode. While everyone agrees something must be done, there is little agreement on how to fund or reform the system. How will your government respond?",
+      "choices": [
+        {
+          "answer": "Our healthcare system cannot do everything at once. We must prioritise urgent cases, reduce unnecessary appointments, and tackle fraud and administrative waste. Our healthcare must focus its resources where they will save the most lives.",
+          "response": "The reforms initially reduce pressure on emergency departments and reassure voters looking for immediate action. However, many services deemed ‘non-urgent’ continue to deteriorate.\nMental health patients experience longer waits, preventative care declines, and chronic conditions increasingly go untreated until they become serious emergencies. Hospitals become more efficient at handling crises, but less effective at keeping people healthy in the first place.\nWaiting lists fall modestly, yet public satisfaction barely improves.",
+          "result": [
+            0.3,
+            0.1,
+            -0.5,
+            0.2
+          ]
+        },
+        {
+          "answer": "We need to supercharge hiring. Get as many junior doctors out there as possible, fund and support medical schools to get doctors directly into the field. The more doctors we have available, the faster we can resolve our backlog.",
+          "response": "Medical schools expand, recruitment increases, and healthcare unions cautiously welcome the investment despite senior doctors protesting out of fear of being kicked out of the workplace.\nYet decades of workforce shortages cannot be solved overnight. Many experienced staff continue leaving due to burnout, difficult working conditions, and stagnant pay. Hospitals struggle to train and supervise new recruits while managing record demand.\nThe policy lays foundations for future improvement, but patients waiting today see little immediate relief.",
+          "result": [
+            0.1,
+            0.3,
+            -0.2,
+            0.1
+          ]
+        },
+        {
+          "answer": "Public healthcare will always remain the backbone of our system. However, private providers can help reduce waiting lists and offer patients more options. We will carefully introduce regulated private hospitals alongside public provision.",
+          "response": "Private clinics rapidly expand capacity and some waiting lists begin to shorten. However, private providers compete aggressively for the same doctors, nurses, and specialists already in short supply.\nWealthier patients benefit first, while poorer communities remain dependent on overstretched public services. Critics argue that the reforms address symptoms without solving the underlying workforce and infrastructure shortages that created the crisis.\nAdditionally, even partially privatising healthcare was a red line for many of your party’s core voters, and the subsequent political backslash is sharp.",
+          "result": [
+            0.0,
+            0.0,
+            -1.0,
+            1.0
+          ]
+        },
+        {
+          "answer": "Our nationalised healthcare is a public service, not a business. We will significantly increase healthcare funding, build new facilities, improve staff pay, and invest directly in public healthcare infrastructure.",
+          "response": "Healthcare workers welcome the investment and morale improves. New facilities begin construction and staff retention rises.\nHowever, years of underinvestment created shortages of buildings, equipment, and trained professionals that cannot be reversed immediately. Construction delays, recruitment bottlenecks, and rising costs slow implementation.\nThe system is stronger than before, but many patients continue experiencing long waits long after the funding announcement.",
+          "result": [
+            -0.1,
+            -0.2,
+            0.3,
+            -0.2
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "text": "Education was once viewed as the surest path to a better life. Today, that belief is fading. Tuition costs have risen faster than wages, schools in poorer regions struggle with chronic underfunding, and graduates increasingly find themselves burdened with debt while competing for jobs that previous generations could secure without a degree. Students, parents, and employers alike are questioning whether the education system still delivers social mobility. How will your government reform education?",
+      "choices": [
+        {
+          "answer": "Education should be a right, not a privilege. Our government will increase school funding, expand grants and scholarships, regulate if not abolish tuition fees, and close tax loopholes enjoyed by elite educational institutions.",
+          "response": "Students, teachers, and education advocates are enthusiastic about the reforms. Access to education improves and financial pressure eases for many families.\nHowever, wealthy schools and universities continue benefiting from extensive endowments, alumni networks, and social prestige that government funding alone cannot easily replicate.\nThe gap of educational inequality narrows, but outcomes remain heavily influenced by family wealth and geography.",
+          "result": [
+            -0.2,
+            0.2,
+            0.3,
+            0.0
+          ]
+        },
+        {
+          "answer": "The best way to improve access is to expand supply. We will build new campuses, train more teachers, invest in vocational education, and create alternative pathways through apprenticeships, online learning, and community colleges.",
+          "response": "New institutions open across the country and educational participation rises significantly. However, expansion alone does not guarantee equal opportunity.\nPrestigious universities remain gateways to the most influential careers, while many newer institutions struggle to match their resources and reputation. More students gain qualifications, but competition for desirable jobs intensifies as employers continue placing disproportionate value on elite credentials.",
+          "result": [
+            0.0,
+            0.2,
+            0.1,
+            0.2
+          ]
+        },
+        {
+          "answer": "Too many students are accumulating debt for qualifications that fail to translate into stable careers. Our priority will be pushing students out of the university route through fund vocational training, apprenticeships, technical education, and direct partnerships with industry.",
+          "response": "Employers welcome the reforms, while university students feel abandoned. Shortages in skilled trades begin to ease. Many high school graduates benefit from alternative pathways into employment without requiring expensive university degrees.\nHowever, students from poorer backgrounds are increasingly being funnelled into vocational tracks while wealthier families continue dominating traditional academic routes. Educational opportunity expands, but class divisions within the system remain stubbornly persistent.",
+          "result": [
+            0.2,
+            0.0,
+            0.1,
+            0.2
+          ]
+        },
+        {
+          "answer": "Funding alone cannot solve educational decline. We will raise standards, strengthen inspections, reform curricula, and hold schools and universities accountable for student outcomes.",
+          "response": "The reforms generate headlines about restoring excellence and many parents support efforts to improve educational performance. Yet schools in disadvantaged communities continue facing challenges that cannot be solved through accountability measures alone.\nTeachers report increasing workloads, struggling schools face additional pressure, and disparities in outcomes remain closely tied to poverty and regional inequality. Test scores improve modestly, but deeper inequalities persist.",
+          "result": [
+            0.0,
+            0.1,
+            -0.1,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "text": "Previous administrations oversaw a sustained rise in immigration to fill labour shortages in healthcare, construction, transport, and agriculture. Employers argue migrant labour is essential to keeping these vital industries functioning.\nMeanwhile, many communities facing stagnant wages, housing shortages, and declining public services increasingly associate these pressures with rising immigration, especially in industrial and working-class regions. Voters from every political aisle are looking at how your government will tackle immigration. What stance will you take?",
+      "choices": [
+        {
+          "answer": "The previous government failed to address and limit immigration. Our government will pick up their slack: I’ll order the Home Office to tighten border controls and reduce intake, and stop the boats!",
+          "response": "Immigration falls steadily and moderates praise the government for demonstrating control over the border. In some sectors, wage growth modestly improves as labour becomes scarcer.\nHowever, staffing shortages worsen across industries depending on immigration, including agriculture and transport, pushing up costs elsewhere in the economy. Most importantly, many of the grievances driving anti-immigration sentiment, such as housing shortages, declining public services, and regional economic stagnation, remain unresolved.\nThe government delivers tighter borders, but this fails to answer the problems leaving the public frustrated.",
+          "result": [
+            -0.2,
+            -0.3,
+            -0.2,
+            0.5
+          ]
+        },
+        {
+          "answer": "There’s good immigration and there’s bad immigration; our labour needs more good immigration. We’ll work to bring down illegal crossings, human trafficking, and stop accepting immigrants who won’t have a productive future in our economy. At the same time, we will streamline visas for high-skilled workers.",
+          "response": "Employers welcome expanded pathways for skilled workers and several labour shortages ease. Hospitals recruit more medical staff and key industries avoid some of the disruptions they feared. Yet critics argue the government is relying on imported labour to compensate for domestic failures in training, education, and workforce planning.\nImmigration remains politically contentious, while many working-class communities continue experiencing the same housing pressures and economic insecurity that fuelled dissatisfaction in the first place.",
+          "result": [
+            0.2,
+            -0.3,
+            0.1,
+            0.2
+          ]
+        },
+        {
+          "answer": "It’s ridiculous that we continue to blame immigrants for being a drain in our economy and not the economic systems that exploit low-cost labour at the expense of industrial workers. Instead of punishing asylum seekers, we’ll expand protections and offer pathways to citizenship for immigrants even if they enter illegally. Meanwhile, we’ll enact targeted sanctions and taxes on migrant-dependent industries so that all workers, regardless of their immigration background, get their fair share.",
+          "response": "Human rights groups, immigrant communities, and many progressives welcome the reforms. More migrants move through legal pathways, reducing pressure on the asylum system, while labour protections improve in several sectors. However, stronger worker protections only partially address deeper issues such as housing scarcity, regional decline, and decades of weakening bargaining power.\nWhile conditions improve for some workers, frustrations persist in many struggling communities. The far-right Alternative continues to present immigration as the visible explanation for problems whose roots lie elsewhere, and that narrative often proves easier to communicate than a structural economic critique.",
+          "result": [
+            0.5,
+            0.2,
+            -0.2,
+            -0.4
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 8,
+      "text": "Despite falling crime rates, public anxiety about crime and disorder is increasing. Social media amplifies isolated incidents, traditional media emphasises sensational cases, and trust in police institutions varies sharply between regions and communities. In some areas, residents feel over-policed; in others, under-protected.\nWhile the statistical reality suggests improvement, perceived insecurity is rising. How will your government respond to growing concerns about public order?",
+      "choices": [
+        {
+          "answer": "We need to show strength and increase police presence in high-concern areas. We’ll create regulations strengthening sentencing for public disorder, train thousands of new officers, and ensure communities feel visibly protected by law enforcement.",
+          "response": "The steady rollout of new police officers improves feelings of safety for suburban and higher-income areas, where visibility of enforcement is interpreted as stability.\nHowever, in many urban communities, expanded policing leads to more frequent stops, arrests, and recorded incidents, increasing perceptions of targeting and unfair treatment. These contrasting experiences deepen regional and social divides in how law enforcement is perceived, and trust in policing becomes increasingly uneven across the country.",
+          "result": [
+            0.0,
+            0.2,
+            -0.4,
+            0.2
+          ]
+        },
+        {
+          "answer": "The truth is, the country has never been safer. The real problem is a disconnect between the police and the community. Our government will introduce local accountability boards for law enforcement and introduce stricter de-escalation training to reduce incidents of public mistrust in the law.",
+          "response": "In some areas, improved dialogue between police and residents leads to higher trust and better cooperation, improving reporting of genuine crime and reducing minor tensions.\nHowever, fragmented standards across regions create inconsistency in enforcement. Wealthier areas maintain stable policing relationships, while higher-demand areas struggle with turnover and uneven implementation. Some police officers report confusion over shifting expectations and institutional cohesion weakens across national forces.\nAdditionally, closer communication between deprived regions and their police increases regional hostility to law-enforcement, driving officers away and increasing sentiment of lawlessness and crime to affluent regions.",
+          "result": [
+            0.0,
+            0.4,
+            -0.2,
+            0.1
+          ]
+        },
+        {
+          "answer": "We need to modernise the police for the digital age instead of relying on outdated infrastructure that cannot respond to growing social urgency. The home office will heavily invest in new forms of digital surveillance and predictive policing, including AI monitoring and data-driven risk profiling.",
+          "response": "The police quickly embrace machine learning to monitor and profile potential criminals. They report greater efficiency in responding to crime, but with the AI integrating past policing data into its future predictions, policing prejudice against minority and impoverished communities measurably increases.\nRights groups express concern of authoritarian drift and narratives of racist AI targeting innocent minorities further destabilises already fragile community trust.",
+          "result": [
+            0.0,
+            0.1,
+            -0.5,
+            0.4
+          ]
+        },
+        {
+          "answer": "Crime is often a symptom of deeper social conditions. Instead of focusing on policing, our initiatives will invest in housing stability, youth services, mental health support, education, and employment opportunities in communities most affected by long-term deprivation.",
+          "response": "Early indicators show improvements in school attendance, youth engagement, and community stability in targeted areas.\nHowever, these effects take time to translate into measurable changes in public perception. In the short term, media coverage continues to focus on isolated incidents, and the Conservatives and Alternative accuse the government of neglecting public order.\nWhile underlying drivers of crime begin to shift, public confidence in safety remains influenced more by visibility than by statistical trends.",
+          "result": [
+            0.1,
+            0.4,
+            0.3,
+            -0.3
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 9,
+      "text": "Multiple ministries are reporting a worrying convergence of pressures: housing shortages, healthcare strain, youth unemployment, and regional economic decline are all worsening at the same time despite ongoing policy interventions.\nWhile some indicators show improvement at a national level, these gains are unevenly distributed, and large parts of the country feel left behind. Social media and traditional news networks amplify stories of decline, further eroding trust in public institutions. How will your government respond to growing perceptions of national decline?",
+      "choices": [
+        {
+          "answer": "The people are out of touch with our accomplishments. Our government has delivered real progress in jobs, infrastructure, and public services. We will communicate more effectively and ensure citizens are aware of improvements being made across the country.",
+          "response": "The campaign improves approval among voters in regions that have benefited from investment and policy. However, in areas experiencing stagnation or decline, messaging is received as disconnected from lived reality.\nPublic perception becomes increasingly fragmented: some communities report improvement, while others see little change. Critics argue that national averages mask deep regional disparities, and political trust continues to diverge geographically.",
+          "result": [
+            0.3,
+            0.0,
+            -0.2,
+            0.3
+          ]
+        },
+        {
+          "answer": "The public deserves honesty about the scale of the challenges we face. We will publish comprehensive reports on housing, healthcare, employment, and regional inequality, and clearly communicate where progress is slow or limited.",
+          "response": "Transparency is initially welcomed by analysts and civic organisations. However, the data also confirms that many structural problems are deeply entrenched and unevenly distributed.\nOpponents seize on the findings to argue that the government has presided over national decline, even in cases where underlying trends predate it. Public awareness of inequality increases faster than visible improvements, deepening political pressure across multiple regions.",
+          "result": [
+            0.1,
+            0.0,
+            0.2,
+            0.0
+          ]
+        },
+        {
+          "answer": "We need to renew our contract with the people. They elected us to deliver change, but the scale of inherited challenges is greater than any single government can resolve quickly. We will be honest about the time required to address housing, healthcare, employment, and regional inequality, while continuing steady reform across all sectors.",
+          "response": "The message resonates with some voters who value realism over promises of rapid change. However, others interpret the government’s tone as an admission of limited capability.\nThe Greens and Alternative frame the statement as evidence of stagnation and lack of ambition. While policy continues to deliver incremental improvements, public impatience grows as expectations of rapid transformation clash with slow-moving structural change.",
+          "result": [
+            0.4,
+            0.0,
+            0.2,
+            0.4
+          ]
+        },
+        {
+          "answer": "Public discourse is increasingly shaped by fragmented and often distorted narratives online. We will target social media platforms to reduce the spread of misleading or overly sensational content and ensure that public debate reflects verified data.",
+          "response": "Some reduction in misinformation and sensational content is observed, and official statistics gain more visibility in public discourse.\nHowever, regional disparities continue to drive divergent narratives that cannot be fully resolved through content moderation alone. Where communities experience genuine economic or social decline, narratives persist regardless of informational interventions.",
+          "result": [
+            0.5,
+            0.0,
+            0.1,
+            0.3
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 10,
+      "text": "Despite significant national investment programs and economic growth in some sectors, former industrial regions continue to experience long-term decline. Employment opportunities remain limited, young people continue to leave for larger cities, and private investment concentrates in already prosperous areas. Many communities feel increasingly disconnected from national political priorities, fuelling distrust in institutions and resentment toward mainstream parties. How will your government address regional economic decline and political disengagement?",
+      "choices": [
+        {
+          "answer": "We will rebuild our industrial heartlands by protecting domestic industries. This includes targeted tariffs on foreign goods, subsidies for strategic manufacturing sectors, and policies prioritising domestic employment over overseas labour sourcing.",
+          "response": "Certain industries experience short-term stabilisation as domestic production becomes more competitive. Some factories retain jobs that might otherwise have relocated.\nHowever, higher input costs reduce competitiveness in export markets, and firms in other sectors face rising prices.\nWhile some communities see renewed industrial activity, overall investment becomes more cautious, and regional divergence persists as capital continues flowing toward high-growth urban sectors.",
+          "result": [
+            -0.1,
+            0.0,
+            0.1,
+            0.0
+          ]
+        },
+        {
+          "answer": "The real issue is political betrayal. We will launch a coordinated national campaign exposing how previous governments – especially our Conservative predecessors – abandoned industrial communities while pursuing policies that benefited metropolitan elites and financial interests.",
+          "response": "The campaign resonates emotionally in affected regions.\nHowever, it does not directly increase investment, employment, or infrastructure development. Over time, communities continue to experience emigration and economic stagnation.\nPolitical trust becomes more polarised, with some voters more convinced than ever of systemic neglect, while others view the messaging as political blame-shifting rather than material improvement.",
+          "result": [
+            0.3,
+            -0.5,
+            0.0,
+            0.2
+          ]
+        },
+        {
+          "answer": "Over the past several years we have experienced a measurable increase in national wealth. The issue is, the money doesn’t trickle down to communities in need of aid the most. We will ensure that the wealth generated in our economy is shared more fairly. Our government will target higher corporate taxation on excessive profits, wealth and capital gains taxes, and reinvest this into struggling regions, funding for local development, infrastructure, and job creation programs.",
+          "response": "Increased taxation generates significant revenue, allowing for expanded regional investment programs. Some areas benefit from renewed public infrastructure spending and improved services.\nHowever, private investment becomes more selective, concentrating in regions with higher productivity and lower perceived regulatory risk. While redistribution improves living standards in targeted areas, it does not fully reverse long-term geographic concentration of economic activity.\nIndustrial decline slows in some regions but continues in others, reinforcing uneven national development patterns.",
+          "result": [
+            0.0,
+            0.0,
+            0.3,
+            -0.3
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 11,
+      "text": "Wealth inequality remains at historically high levels, despite policy interventions targeting its reduction. Economic growth has continued, but gains appear to be increasingly concentrated among high-income households and asset owners. Many voters report that social mobility has stalled, and that the link between effort and reward is weakening. Economists disagree on whether this is a temporary phase of adjustment or a structural feature of the modern economy. How will your government respond to rising wealth inequality?",
+      "choices": [
+        {
+          "answer": "The reforms we have implemented across housing, education, healthcare, and employment take time to produce full effects. We will continue our current strategy, allowing investments and policy changes to work through the economy while maintaining stability and investor confidence.",
+          "response": "Some indicators show early improvements in access to services and regional investment, suggesting parts of the policy agenda are beginning to take effect. However, asset holders and high-income groups continue to capture a disproportionate share of economic gains.\nWhile absolute living standards improve for many households, relative inequality remains stubbornly high. Leftist critics argue that the government is prioritising stability over redistribution, while supporters emphasise that structural economic change rarely occurs within a single electoral cycle.",
+          "result": [
+            0.2,
+            0.0,
+            -0.1,
+            0.3
+          ]
+        },
+        {
+          "answer": "We need to be more aggressive with our approach. We will directly address excessive wealth concentration as the biggest issue society is facing right now, and using our progressive taxation platform, bring down costs and wealth disparity, placing people before profits through expanded public investment in social infrastructure and welfare support.",
+          "response": "The policy significantly increases government revenue, and in the short term, inequality metrics begin to stabilise in some areas. This also takes the wind out of the Green Party, who have polled well on wealth inequality. However, financial markets adjust by reallocating capital, and some investment activity slows or shifts abroad.\nWealth concentration decreases in certain sectors but persists through asset appreciation and structural ownership advantages. Political opposition intensifies from both business groups and centrist factions, while expectations among affected communities rise faster than visible long-term redistribution effects.",
+          "result": [
+            -0.1,
+            0.1,
+            0.3,
+            -0.3
+          ]
+        },
+        {
+          "answer": "Sustained economic growth remains the most reliable path to improving living standards. We will focus on encouraging investment, reducing barriers to innovation, and working with the private sector to expand productivity and job creation.",
+          "response": "Much of the new wealth is concentrated among capital owners and high-skill labour markets, reinforcing existing distribution inequalities. While average incomes rise, regional and class disparities persist, and many households do not experience meaningful improvements in financial security.\nThe Greens quickly tie your government to policy benefiting businesses over workers, and blue-collar workers continue to bleed support towards the anti-establishment. Businesses, for their part, welcome this approach, but critics suspect it is to consolidate their existing capital.",
+          "result": [
+            0.2,
+            0.0,
+            -0.4,
+            0.3
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 12,
+      "text": "Surveys show a record number of citizens no longer believe the government understands their lives. However, this distrust is uneven: some regions and sectors report improved conditions, while others experience continued stagnation or decline. Voter turnout is falling, party membership is collapsing, and politics is becoming increasingly polarised between disengagement and anti-establishment mobilisation. How will your government respond to growing democratic disillusionment?",
+      "choices": [
+        {
+          "answer": "The government must remain focused on delivering long-term reforms that take time to show results. We will continue implementing our policy programme while maintaining institutional stability and resisting short-term political pressures.",
+          "response": "Government performance remains stable in administrative terms, and several long-term indicators continue to show gradual improvement. However, political disengagement continues to rise among voters who experience delayed or uneven benefits.\nWhile supporters emphasise the importance of long policy cycles, critics argue that democratic legitimacy erodes when improvements are not immediately visible in everyday life. Trust stabilises in some regions but declines further in others.",
+          "result": [
+            0.2,
+            0.0,
+            0.0,
+            0.2
+          ]
+        },
+        {
+          "answer": "Government needs to be deeply involved in people’s lives so they feel like they’re making an effect on policy. We will devolve more decision-making power to local authorities, expand citizen assemblies, and increase opportunities for direct participation in shaping local services and priorities.",
+          "response": "In some regions, participation increases and citizens feel greater control over local decisions. However, outcomes vary significantly depending on local administrative capacity and funding levels. Wealthier or better-resourced regions implement reforms more effectively, while struggling areas see limited change. This uneven implementation reinforces perceptions that political influence is itself geographically unequal, shifting rather than resolving dissatisfaction with national government.",
+          "result": [
+            0.2,
+            0.1,
+            0.2,
+            0.1
+          ]
+        },
+        {
+          "answer": "We will actively counter anti-democratic and extremist narratives by highlighting their contradictions, exposing their records where applicable, and reinforcing trust in democratic institutions and established governance.",
+          "response": "Counter-messaging increases visibility of extremist figures across political discourse, unintentionally amplifying their presence in public debate. However, the effectiveness of extremist narratives continues to depend less on exposure and more on perceived alignment with lived experience in struggling communities.\nWhere government outcomes are seen as disconnected from daily realities, alternative explanations of decline gain traction regardless of media strategy. Political polarisation intensifies between institutional supporters and anti-establishment movements.",
+          "result": [
+            -0.2,
+            0.1,
+            -0.2,
+            0.2
+          ]
+        },
+        {
+          "answer": "Citizens are right to be frustrated. Too many people are left behind by systems that no longer serve them effectively. Rather than defending the status quo, we will acknowledge these failures openly and present our reforms as a vehicle for meaningful change, for the people against the entrenched interests.",
+          "response": "The government’s willingness to acknowledge public frustration resonates with many voters who feel their concerns have long been dismissed by political leaders. Opponents from the political extremes criticise the government as distracting from it’s own role in embedding systemic failures, but trust temporarily improves among some disengaged groups. As expectations for change rise, public scrutiny of policy outcomes intensifies.\nWhere reforms fail to produce visible improvements, accusations of opportunism and rhetorical populism emerge, further deepening cynicism among sceptical voters.",
+          "result": [
+            -0.1,
+            0.0,
+            0.3,
+            -0.3
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 13,
+      "text": "The nation is a powder keg on the verge of combustion. Large-scale demonstrations from various political groups, both left and right, are erupting across the country. While participants disagree on solutions, they share a growing rejection of the political system’s ability to represent their interests.\nHowever, these movements are not ideologically unified: some frame the crisis as systemic economic failure requiring structural reform, while others attribute it to a breakdown in cultural norms and national pride.\nMeanwhile, traditional institutions are struggling to respond coherently to rapidly shifting narratives. How will your government respond to escalating political mobilisation and emerging anti-establishment movements?",
+      "choices": [
+        {
+          "answer": "We must not overreact to short-term volatility. Public sentiment fluctuates, but structural reforms already underway will take time to show results. We will maintain policy continuity and allow the electoral cycle to resolve political dissatisfaction through democratic channels.",
+          "response": "Protest intensity remains variable but persistent. While some regions gradually demobilise as local conditions improve, others continue sustained mobilisation driven by unmet expectations and uneven policy outcomes.\nThe progressive Greens and populist Alternative consolidate organisational structures, strengthening their presence in areas experiencing prolonged stagnation. Rather than dissipating, anti-establishment sentiment becomes more politically embedded ahead of the next electoral cycle.",
+          "result": [
+            0.2,
+            0.0,
+            -0.1,
+            0.3
+          ]
+        },
+        {
+          "answer": "We will reinforce public confidence by visibly demonstrating institutional stability and international credibility, including endorsements from respected global leaders, business figures, and international institutions, while making clear that extremist political alternatives offer unacceptable instability and economic risk.",
+          "response": "The campaign temporarily stabilises confidence among moderate and economically secure voters. However, both opposition blocs adapt quickly.\nThe Alternative Party frames the endorsements as evidence of elite capture and disconnected governance, reinforcing their anti-establishment messaging. The Greens, meanwhile, criticise the focus on elite validation as proof that political power remains insulated from everyday inequality and environmental neglect.\nRather than consolidating support, the strategy sharpens the distinction between “establishment” and “anti-establishment”, accelerating opposition clarity rather than blunting it.",
+          "result": [
+            0.1,
+            0.0,
+            -0.1,
+            0.3
+          ]
+        },
+        {
+          "answer": "While I recognise the cause of protest, I denounce the spread of political extremism from the far-left and far-right. We will maintain public order while making clear distinctions between legitimate democratic dissent and movements that seek to exploit unrest. Law enforcement will prioritise disruption of organised protest activity and coordinated misinformation networks that inflame tensions.",
+          "response": "The government and police response throws a lit dynamite into the precarious powder keg, leading to violent showdowns between riot police and protestors, and a greater feeling that government defends a privileged minority over the dissatisfaction of the majority.\nThe Alternative portrays the government as suppressing “patriotic citizens defending our national identity”, while the Greens highlight police disproportionately targeting structurally disadvantaged groups. Protest activity becomes more ideologically sorted, with  increased organisational clarity towards anti-establishment movements.",
+          "result": [
+            0.2,
+            -0.1,
+            -0.3,
+            0.3
+          ]
+        },
+        {
+          "answer": "The rise of anti-establishment movements reflects a failure of institutional responsiveness. While our policies gradually materialise, we can immediately focus on being transparent, delivering services faster, and ensuring that government outcomes are visible, measurable, and directly responsive to public needs.",
+          "response": "Administrative reforms improve the visibility of certain policy outcomes, particularly in regions where investment and infrastructure delivery are already underway. Opposition parties reframe these reforms in competing ways.\nThe Greens argue that incremental institutional improvements cannot compensate for entrenched inequality and delayed structural transformation. The Alternative Party dismisses them as cosmetic adjustments designed to preserve a failing system.\nWhile some voters regain partial confidence in specific institutions, overall political trust remains fragmented, with competing movements embedding themselves as interpreters of government performance.",
+          "result": [
+            0.0,
+            -0.1,
+            0.2,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 14,
+      "text": "Over the past several years, student-led movements have become increasingly visible across universities and some secondary education institutions. These movements heavily target LGBTQ+ inequality, overseas wars and defence commitments towards Israel amidst visible war crimes, police brutality and systemic racism, and defending immigration.\nUniversities report disruption to teaching and administration, while civic institutions are divided on whether these movements represent legitimate democratic expression or a breakdown of order within educational spaces. Your government must decide how to respond to growing student mobilisation. What approach do you take?",
+      "choices": [
+        {
+          "answer": "Students are citizens expressing genuine concerns about the direction of society. Peaceful protest will be protected, universities will retain autonomy, and we will establish formal channels for student representation in education policy. At the same time, we expect institutions to ensure teaching can continue and that protest does not prevent others from accessing education.",
+          "response": "Civil liberties organisations, student groups, and many academics welcome the government’s stance. Engagement reduces some tensions, and structured dialogue channels begin to take shape in several universities.\nTrust in government from educated students begins to gradually recover, although critics argue that formal consultation does not resolve the underlying drivers of unrest, and some student-led movements now view themselves as legitimate political actors.",
+          "result": [
+            -0.2,
+            0.0,
+            0.4,
+            -0.2
+          ]
+        },
+        {
+          "answer": "Young people have inherited a society full of systemic defects, economic insecurity, and a world that often seems increasingly unstable. I will defend your right to protest and disagree with my government. But student leaders must recognise the political reality we face. Every lecture disrupted, every building occupied, every headline portraying disorder strengthens those who wish to restrict the very freedoms you exercise today. If Alternative comes to power, they will not treat these movements with the same tolerance. Work with us, not against us, to defend the democratic space that allows protest to exist.",
+          "response": "Hearing out the threat of Alternative, some student organisations agree to engage with government channels rather than escalating disruption.\nHowever, many activists react negatively to what they perceive as emotional blackmail. Student leaders argue that their role is to pressure governments into action, not provide political cover for them. The message reinforces a growing belief that the government is more concerned with managing dissent than addressing its causes.",
+          "result": [
+            -0.2,
+            0.0,
+            0.2,
+            0.1
+          ]
+        },
+        {
+          "answer": "Are we blind? We can’t let hippies take over our campuses. What we are witnessing is no longer simply student expression, it is organised disruption that is undermining the functioning of educational institutions. We will introduce clear limits on disruptive protest within universities, require prior authorisation for large demonstrations on campus, and strengthen discipline by dispersing police to break down disruptive protest. Freedom of expression cannot come at the expense of other students’ right to education.",
+          "response": "Some institutions see disruption decrease and teaching schedules stabilise. In others, enforcement becomes heated, with accusations that disciplinary measures are disproportionately applied to pro-Palestinian and anti-war groups.\nStudent movements respond by shifting activity off-campus and into wider civic spaces, where they are harder to regulate. International observers raise concerns about academic freedom, while domestic public opinion is split between moderates and parents who value stability and students and activists who see the measures as a suppression of legitimate dissent.",
+          "result": [
+            0.0,
+            -0.1,
+            -0.5,
+            0.5
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 15,
+      "text": "Support for both the Alternative Party and the Greens is rising rapidly, reflecting a widening split in how voters interpret the country’s long-term decline. Alternative is consolidating support in regions affected by industrial decline and institutional distrust through scapegoating immigrants and championing nationalism, while the Greens are gaining traction among younger voters and urban areas concerned with inequality, housing, and systemic reform.\nBoth movements reject the political establishment, but propose fundamentally different explanations for national stagnation. Within your governing coalition, pressure is mounting to respond more directly to these shifting voter blocs. How will your government respond?",
+      "choices": [
+        {
+          "answer": "We need to turn rightward. We must acknowledge the material concerns about borders, immigration assimilation, and pressure on public services through show of force. We will strengthen immigration enforcement, tighten eligibility rules, and prioritise policies that reinforce national economic security and local employment opportunities.",
+          "response": "The shift temporarily slows voter migration to Alternative in some working-class regions where immigration and labour market pressures are most salient.\nHowever, Alternative rapidly reframes the policy as evidence that the government is reacting too late and still defending the underlying system they oppose.\nMeanwhile, progressive voters become increasingly alienated by the direction of travel, leading to Liberal abandonment to the Green Party and their narratives that mainstream politics is converging toward managed exclusion rather than structural reform.\nThe government reduces losses on one flank but accelerates fragmentation on the other.",
+          "result": [
+            -0.2,
+            -0.3,
+            -0.4,
+            0.4
+          ]
+        },
+        {
+          "answer": "We need to turn leftward. Rising inequality and regional decline require a stronger structural response. We will explicitly adopt language on nationalising industries such as energy, water, and transport, highlight reducing wealth concentration, and make cost of living affordability our primary platform, even if implementing these changes will be costly and take time.",
+          "response": "The policy strengthens support among younger voters and urban constituencies increasingly aligned with Green Party arguments.\nHowever, implementation exposes internal tensions within the governing coalition, particularly around fiscal priorities and market confidence. The Greens gain credibility as the primary advocate for structural transformation, while the Liberals are increasingly framed as adopting delayed or diluted versions of their agenda.\nAt the same time, Alternative intensifies its appeal in regions that interpret these reforms as benefiting metropolitan areas while leaving cultural and regional identity concerns unaddressed.",
+          "result": [
+            -0.1,
+            0.0,
+            0.5,
+            -0.5
+          ]
+        },
+        {
+          "answer": "The government will not be pulled into reactionary politics that undermine long-term stability. We will continue pursuing evidence-based reforms while strengthening institutions, improving public services, and reinforcing democratic norms. Extremist movements on both sides offer simplified answers to complex structural challenges, but governance requires continuity and responsibility.",
+          "response": "The position stabilises support among centrist voters and institutional stakeholders. However, both opposition blocs continue to grow in distinct directions.\nAlternative uses the statement to reinforce claims that the government is unwilling to address cultural and migration-related concerns, while the Greens argue that ‘stability’ has become a justification for slow structural reform that fails to match the urgency of inequality and regional decline.\nThe Liberals retains institutional legitimacy but increasingly loses narrative control over how national decline is interpreted, as both opposition movements define themselves in opposition to different perceived failures of the same system.",
+          "result": [
+            0.2,
+            -0.3,
+            0.0,
+            0.2
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 16,
+      "text": "The faces of your cabinet members look grim. Trust in public institutions has reached historic lows. One thing prevails in your mind: this downturn was not sudden. Decades upon decades of sustained economic decisions deregulating, privatising, and retreating public investment has left wealth increasingly concentrated in the small hands of the minority, while wages stagnated, public services strained under growing demand, and communities hollowed out. As inequality became entrenched, so too did the feeling that democratic institutions no longer represented the people nor improved the lives of ordinary people.\nYour cabinet is gathered here today, with collapsing trust and popularity, and an election approaching within a year, to decide how to win re-election in a nation increasingly hostile to establishment brands. What will your next move be?",
+      "choices": [
+        {
+          "answer": "The country does not need escalation or reinvention, but competent governance under difficult conditions. We will focus on delivering measurable improvements in public services, economic stability, and institutional performance, prioritising outcomes over rhetoric and resisting the pressure of political volatility.",
+          "response": "Administrative performance continues to improve in several key areas but unevenly perceived, with some regions experiencing tangible benefits while others see little immediate change.\nAlternative continues to frame this approach as managerial indifference to cultural and regional decline, while the Greens argue that incremental improvements are insufficient to address systemic inequality.\nThe government becomes associated with functional competence without narrative control, maintaining institutional operation but losing interpretive authority over national decline.",
+          "result": [
+            0.1,
+            -0.2,
+            -0.2,
+            0.3
+          ]
+        },
+        {
+          "answer": "The rise of anti-establishment movements is not spontaneous. It is being actively shaped by actors who exploit public frustration for political gain. We must defend democratic institutions by clearly exposing the failures, contradictions, and risks posed by both political extremes, and make the case that democratic continuity is the only path to stability.",
+          "response": "The strategy consolidates support among remaining loyal voters and institutional stakeholders, temporarily stabilising parts of the media narrative.\nHowever, it fails to re-engage voters who already interpret political discourse as mutually self-serving. Alternative frames the response as evidence of elite defensive coordination against legitimate grievance, while the Greens argue that the government is diverting attention from structural economic and social failures.\nPolarisation deepens, and both movements continue to expand by offering competing explanations for the same underlying decline in trust.",
+          "result": [
+            0.2,
+            -0.1,
+            0.0,
+            0.2
+          ]
+        },
+        {
+          "answer": "For decades, government after government has promised easy answers to difficult problems. Today, I refuse to do the same. The crisis we face is not the result of recent policy failures alone, but of long-term structural changes that have reshaped our economy, democracy, and institutions over decades. If we are to rebuild trust, we must be honest about the depth of these forces, even if doing so does not provide immediate solutions or political comfort.",
+          "response": "The speech becomes a defining moment in national discourse. Many analysts and commentators acknowledge the accuracy of the structural diagnosis, and for a brief period, political debate shifts toward long-term causes rather than short-term blame.\nHowever, this clarity does not translate into unified political support. The Greens use the framing to argue for deeper systemic restructuring at an accelerated pace, while Alternative rejects it as an abstract justification that avoids assigning responsibility to identifiable political actors.\nRather than stabilising legitimacy, the statement reorganises political conflict around competing interpretations of structural reality itself.",
+          "result": [
+            -0.3,
+            0.0,
+            0.4,
+            -0.4
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 17,
+      "text": "The election is half a year away. Policy flexibility is limited, and most voters have already formed strong interpretations of the country’s direction. Your advisors agree that this campaign will be decided less by new policies and more by how the election is framed in public discourse.\nBefore campaigning begins, your cabinet must decide what this election should fundamentally be about. How will you position your government heading into the election?",
+      "choices": [
+        {
+          "answer": "The nation is exhausted. Civilians feel robbed of opportunities and struggle to make ends meet, but the opposition will plunge them into economic insecurity and disorder. This election must be about stability, competence, and protecting people from the risks of political extremism.",
+          "response": "The framing consolidates support among older voters, institutional professionals, and economically stable regions, preserving the Liberal base in core governing constituencies.\nHowever, it accelerates losses among voters experiencing stagnation or decline, leading to gains for Alternative in rural and industrial sectors, while younger voters move to the Greens.",
+          "result": [
+            0.1,
+            -0.2,
+            -0.2,
+            0.2
+          ]
+        },
+        {
+          "answer": "This election must be about continuing and deepening the reforms already begun. The first term addressed immediate instability; a second term would allow us to tackle the deeper structural problems that have built up over decades and ensure long-term renewal.",
+          "response": "The framing partially reactivates disengaged progressive and reform-minded voters. While some prospective Green voters tacitly return home in promise of change, a significant proportion of ex-Liberal voters remain committed to the Greens and Alternative.",
+          "result": [
+            -0.1,
+            0.0,
+            0.3,
+            -0.2
+          ]
+        },
+        {
+          "answer": "We’re facing extremely dangerous opponents who will refuse to accept a loss, criticise our democratic and liberal principles, and continuously threaten the next election will be the last. This election is a choice between democratic stability and political movements that risk undermining the institutions that hold our society together. We will defend liberal democracy, responsible governance, and the rule of law against those who seek to exploit instability for political gain.",
+          "response": "The strategy consolidates centrist and institutional support across party lines, temporarily reinforcing Liberal positioning as the “establishment anchor.”\nSome Greens opt to fall-in-line through the emotionally powerful defending democracy framing, however, other progressives argue these are hollow promises amidst accumulating systemic decline, while the Alternative frame the campaign as elite self-preservation against popular anger.",
+          "result": [
+            0.1,
+            0.0,
+            0.3,
+            -0.2
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 18,
+      "text": "After months of preparation, you travel to parliament today and formally request a dissolution of government. Today, the campaign begins. You walk out to your podium, television and news broadcasters presenting you live, awaiting your speech. How will you define your campaign launch?",
+      "choices": [
+        {
+          "answer": "Over the past term, we have stabilised the economy, reduced inflationary pressure, improved access to housing and healthcare, and begun restoring fairness to a system that had drifted towards inequality for too long. This election is a choice between continuing that progress or risking reversal under unstable alternatives.",
+          "response": "The message performs strongly among voters who have directly benefited from improved stability, particularly in middle-income suburban and professional regions where living costs have begun to ease.\nHowever, in regions where material improvements are less visible, the message is increasingly interpreted as defensive reassurance rather than transformation.\nThe Alternative continues to gain support by framing these outcomes as managed decline abandoning national identity, while the Greens continue to attract younger voters who acknowledge improvements but argue they do not address underlying structural inequality.",
+          "result": [
+            0.1,
+            0.0,
+            -0.2,
+            0.2
+          ]
+        },
+        {
+          "answer": "Look, this election is a fundamental choice. It is a choice between a government that believes in democracy, stability, and responsible governance, and movements that offer chaos, division, and economic recklessness. We ask voters to decide whether they want a future built on institutions or one built on instability.",
+          "response": "The framing consolidates support among risk-averse centrists and institutional voters who are increasingly anxious about political volatility. A portion of previously disillusioned Liberal voters also return, particularly those who had drifted toward the Greens.\nHowever, the response has uneven effects across the opposition landscape. The Alternative reframes the message as elite fear of popular anger and a refusal to acknowledge cultural abandonment. The Greens, while less energised by the polarisation framing, still retain urban and younger voters who see democratic defence rhetoric as insufficient without deeper structural reform.",
+          "result": [
+            0.0,
+            0.0,
+            0.2,
+            0.0
+          ]
+        },
+        {
+          "answer": "First and foremost, we need to break with the timidness of our current campaign. It’s time to shift tones. Our first term was about stabilising a country under strain. Our second term will be about revolution. We will undo decades of structural inequality by taking back control of public services, making housing, healthcare, and education affordable and accessible again, and giving deprived communities a sense of purpose and belonging. We must build an economy that works for working people, not just concentrated centres of wealth and influence.",
+          "response": "Moderates turn their head at this announcement, but this speech reactivates progressive and younger voters who had previously shifted toward the Greens.\nMeanwhile, Alternative strengthens its position in regions that interpret the message as abstract elite rhetoric disconnected from cultural and community decline, accelerating their consolidation in working-class constituencies.",
+          "result": [
+            -0.1,
+            0.0,
+            0.4,
+            -0.5
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 19,
+      "text": "It is a week before election day, and new polling data shocks political observers. Support for anti-establishment parties has surged to levels unseen in modern history. With campaign resources and time being limited, internal polling suggests you cannot effectively fight every opponent at once. Your strategists ask where the campaign should focus its attacks in the final stretch. Which party will be the target of your messaging?",
+      "choices": [
+        {
+          "answer": "The origins of this crisis lie in decades of economic mismanagement, underinvestment, and short-term political thinking that weakened our institutions and left communities exposed. We will remind voters of the Conservative administration that created this situation and who was responsible for setting the country on this path.",
+          "response": "Your advisors are confused why you’re attacking the party some estimate will be dead-last this coming election, especially when some ex-Conservative politicians endorsed you. However, it does re-anchor parts of the political debate around long-term institutional decline, which is interpreted differently across the electorate.\nSome voters see it as validation that structural issues predate the current government, others interpret it as political deflection, reinforcing the idea that all mainstream parties are responsible for the same historical trajectory.",
+          "result": [
+            0.0,
+            -0.5,
+            0.2,
+            0.0
+          ]
+        },
+        {
+          "answer": "The central threat in this election is the politics of division, scapegoating, and simple answers to complex issues. We will expose the Alternative Party’s solutions as unstable, unworkable, and damaging to long-term national cohesion, and make clear that they offer grievance without governance.",
+          "response": "The strategy sharpens the electoral battlefield. Liberal support rises among those previously considering disengagement or Green alignment.\nAlternative benefits from intensified visibility and frames the attacks as confirmation that they represent a genuine challenge to entrenched power.",
+          "result": [
+            -0.1,
+            0.0,
+            0.4,
+            -0.5
+          ]
+        },
+        {
+          "answer": "We can’t challenge the far-right without unifying our coalition, and we need to persuade disillusioned progressives and unionists to back us once more. Attack the Greens, represent their policy as unrealistic progressive ambitions not grounded in reality, and that a vote for them is a vote for the Alternative.",
+          "response": "This campaign backfires spectacularly. Instead of convincing younger and structurally aware voters to come home, they drift further towards the Greens, who frame the attacks as evidence that systemic reform is being deliberately blocked by establishment politics, appealing to left-wing voters who believe mainstream politics have no answer to worsening inequality.",
+          "result": [
+            0.0,
+            0.0,
+            -0.5,
+            0.5
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 20,
+      "text": "Tomorrow, the nation votes. You have governed through economic uncertainty, housing shortages, healthcare strain, inequality, protest movements, declining trust, and growing political fragmentation.\nTonight, you stand before the nation one final time. Hundreds of thousands of voters are listening. What will be the closing address of your campaign?",
+      "choices": [
+        {
+          "answer": "Tomorrow is a choice between stability and uncertainty. Between democratic institutions that protect rights and political movements that offer simple answers to complex problems but risk undermining everything we have built together. We ask you to choose continuity over chaos.",
+          "response": "Loyal moderates across the centrist wing rally behind this warning, but whether this convinces enough voters enthusiastic about the political extremes to change their vote will be seen tomorrow.",
+          "result": [
+            0.2,
+            -0.2,
+            0.0,
+            0.2
+          ]
+        },
+        {
+          "answer": "The best days of this administration are ahead of us. We’ve faced many challenges this first term, but now we can build a new future. We cannot lose sight of tomorrow’s hope to the hateful rhetoric of the political extremes.",
+          "response": "The speech is uplifting, but many citizens remain unconvinced that optimism alone can overcome their material circumstances. Perhaps your message could turn the tide for some undecided voters?",
+          "result": [
+            0.0,
+            0.0,
+            0.1,
+            0.0
+          ]
+        },
+        {
+          "answer": "When we began our government, we inherited a crisis of disproportions. Since then, we have governed sensibly and pragmatically to recover from our national misfortunes. Tomorrow, we trust the voters to choose the sensible, common-sense choice party of responsible governance.",
+          "response": "Selling your achievements is easy to those who always support you, but many voters continue to judge the government through the lens of broader social inequalities. Tomorrow, we will see whether your policy can overcome the social tide.",
+          "result": [
+            0.1,
+            0.0,
+            -0.1,
+            0.2
+          ]
+        },
+        {
+          "answer": "Democracy was never meant to solve every problem overnight. The challenges we face were decades in the making and the will to resolve them will require decades to overcome. Which is why we promise to the voters, re-elect us and our national recovery will be all but certain, and do not throw the country into the pits of chaos and extremism.",
+          "response": "Despite being earnest, voters are exhausted hearing time and time again that the challenges they face are unsolvable unless politicians are re-elected and re-elected. Tomorrow, we’ll see if voters give you the benefit of the doubt or not.",
+          "result": [
+            0.1,
+            0.0,
+            0.0,
+            -0.1
+          ]
+        }
+      ]
+    }
+  ]
+}

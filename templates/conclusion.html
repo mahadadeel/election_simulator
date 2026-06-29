@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ outcome_title|safe }}</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #afdaff;
+            font-family: Arial, sans-serif;
+        }
+
+        .page {
+            width: 80%;
+            padding-left: 10%;
+            padding-top: 20px;
+        }
+
+        .panel {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .submit-btn {
+            display: block;
+            margin: 15px auto 0 auto;
+            padding: 8px 16px;
+            border: none;
+            background: #4a90e2;
+            color: white;
+            border-radius: 5px;
+            width: auto;
+        }
+
+        .submit-btn:disabled {
+            background: #919191;
+            cursor: not-allowed;
+        }
+
+        .js-plotly-plot,
+        .js-plotly-plot * {
+            cursor: default !important;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .results-table th,
+        .results-table td {
+            padding: 8px 10px;
+            text-align: left;
+        }
+
+        .results-table thead {
+            border-bottom: 2px solid #ddd;
+        }
+
+        .results-table tbody tr {
+            border-bottom: 1px solid #eee;
+        }
+
+        .delta-positive {
+            color: #1a9c4a;
+            font-weight: 500;
+        }
+
+        .delta-negative {
+            color: #c0392b;
+            font-weight: 500;
+        }
+
+        .delta-neutral {
+            color: #777;
+        }
+
+        .results-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .results-top {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .results-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .results-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .results-middle {
+            width: 100%;
+        }
+
+        .results-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            width: 70%;
+            padding-left: 15%;
+
+            align-items: center;
+        }
+
+        .map-container,
+        .parliament-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .outcome-title {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .outcome-text {
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        .results-table-container {
+            overflow-x: auto;
+        }
+
+        #restart-btn {
+            cursor: default;
+        }
+
+        .key-overlay {
+            position: absolute;
+            top: 100px;
+
+            width: 180px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+
+            padding: 8px;
+            z-index: 10;
+
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+
+            transition: all 0.2s ease;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .key-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-weight: bold;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+
+        .key-overlay.minimised .key-body {
+            display: none;
+        }
+
+        .key-overlay.minimised {
+            width: 120px;
+        }
+
+        #key-minimise-btn {
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
+
+            font-size: 14px;
+            line-height: 1;
+            cursor: pointer;
+
+            color: #666;
+            width: 16px;
+            height: 16px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #key-minimise-btn:hover {
+            color: #000;
+        }
+
+        .outline-toggle {
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        #outline-toggle-checkbox {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        .outline-overlay {
+            position: absolute;
+
+            top: 100px;
+            left: 350px;
+
+            background: rgba(255, 255, 255, 0.9);
+            padding: 6px 10px;
+
+            border: 1px solid #ddd;
+            border-radius: 6px;
+
+            z-index: 20;
+
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+            font-size: 12px;
+        }
+
+        .archetype-key {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .archetype-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .archetype-swatch {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            display: inline-block;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .archetype-label {
+            color: #333;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="panel results-layout">
+
+        <div class="results-top">
+
+            <div class="results-left">
+
+                <div class="map-container">
+                    {{ seats|safe }}
+                </div>
+
+                <div id="outline-btn-container" class="hidden outline-overlay">
+                    <label class="outline-toggle">
+                        <input type="checkbox" id="outline-toggle-checkbox">
+                        Winning Party Outline
+                    </label>
+                </div>
+
+                <div id="archetype-key-container" class="key-overlay hidden minimised">
+                    <div class="key-header">
+                        <span>Key</span>
+                        <button id="key-minimise-btn">–</button>
+                    </div>
+
+                    <div class="key-body">
+                        {{ archetype_key|safe }}
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="results-right">
+
+                <div class="outcome-title" style="text-align:center">
+                    <b>Seat Distribution</b>
+                </div>
+
+                <div class="parliament-container">
+                    {{ parliament|safe }}
+                </div>
+
+                <div class="outcome-title">
+                    <b>{{ outcome_title|safe }}</b>
+                </div>
+
+                <div class="outcome-text">
+                    {{ outcome_text|safe }}
+                </div>
+
+            </div>
+
+         </div>
+
+         <div class="results-middle">
+
+            <div class="results-table-container">
+                {{ results_table|safe }}
+            </div>
+
+            <p class="outcome-text" style="text-align:center">
+                Scroll further down for author's message.<br>
+                Think you can do better? Click the button below to start again.
+            </p>
+
+            <button id="restart-btn" class="submit-btn">
+                <b>Restart Game</b>
+            </button>
+
+         </div>
+
+         <div class="results-bottom">
+
+            <div class="outcome-title">
+                <b>Author's Message</b>
+            </div>
+
+            <div class="outcome-text">
+                I designed this game as a criticism of structural inequality and the belief that simple policy decisions can resolve deeply embedded economic and social injustices in even a liberal and democratic nation.<br><br>
+                I believe that even the best-intentioned policy decisions of a liberal government cannot succeed unless they directly tackle foundational inequalities in how society distributes resources and wealth. Abundance cannot succeed if the underlying distribution trends concentrate capital in the hands of already prosperous regions while deprived areas continually feel left behind.<br><br>
+                When I hear US liberals, for example, complain about the rise of Trump despite economic success under Obama or Biden, I immediately point out how even if national metrics show prosperity, that success is not felt by many people on the streets.<br><br>
+                The UK is one of the wealthiest countries in the world, yet wealth is concentrated upwards, from decades of Thatcherite and neoliberal economic policy leaving public utilities impoverished and dismantling organised labour and worker protection.  As these economic policies entrench become the status quo, dissatisfaction for wealth inequality and a breakdown in social mobility breeds support for 'alternative' measures, including the populist-right, even if their policies worsen the lives of the many through offering simple solutions scapegoating immigrants, minorities, women, etc., when the causes of structural inequality are more profound, multi-layered, and intertwined with political and economic policy that regularly puts profits and businesses over people and welfare.<br><br>
+                In case you lost to the Alternative, there is a winning scenario for the Liberals, by picking options that acknowledge and tackle wealth and social ineqaulity head-on. Your policy decisions may not undo decades of institutional decline, but redistribution, labour protections, and bold economic agenda offers a pathway to undo some systemic harms and win re-election.<br><br>
+                Otherwise you can try my favourite scenario, which I call 'Kier Starmermaxxing', where you turn as right-wing as possible and tank your party's popularity so hard you lead the Greens to pick up your slack.<br><br>
+                The beauty of presenting this philosophy as a game is that the results will change marginally every time, even if overall trends result in familiar outcomes. I'm curious to see how you manipulate the results and who comes out on top or not.<br><br>
+                Did you feel handicapped by structural inequalities and decades-old economic policy favouring wealth concentration to businesses and economic elites, despite your best policy intentions? What decisions will you defend? Which do you regret? Does it draw parallels with real-world centre-left parties like the US Democrats under Biden, the UK Labour Party, or the German SPD?<br><br>
+                On the topic of structural inequality, running this game on a FPTP parliamentary system can produce some uneven resutls. Winning parties in the popular vote do worse in seats or vice-versa. Many playtests saw the Greens come second in popular vote but third in seats. This isn't a bug, it's a feature of a disproportional voting system. Food for thought. Maybe your victory or loss directly comes from the inequality of FPTP?<br><br>
+                In conclusion; I believe the most effective way to fight far-right populism is to recognise and tackle structural inequalities head-on, redistribute wealth and resources, prioritise people over profit, and dismantling the unjust systems enabling dissatisfaction with the status quo to explode into support for dangerous fascist ideology.<br><br>
+            </div>
+
+         </div>
+
+    </div>
+
+</div>
+
+<script>
+
+window.addEventListener("load", function () {
+    window.scrollTo(0, 0);
+});
+
+</script>
+
+<script>
+
+// Button to handle restarts
+// Similar to game start button
+document.getElementById("restart-btn").addEventListener("click", async function () {
+
+    const btn = this;
+
+    btn.disabled = true;
+    btn.innerHTML = "Loading...";
+
+    const res = await fetch("/reset_game", {
+        method: "POST"
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+        window.location.href = '/game'
+    }
+});
+
+</script>
+
+<script>
+
+// Script handling for plotly chart
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const plot = document.querySelector('.js-plotly-plot');
+    const key = document.getElementById("archetype-key-container");
+    const outline = document.getElementById("outline-btn-container");
+
+    if (!plot || !key || !outline) return;
+
+    const observer = new MutationObserver(() => {
+
+        const data = plot.data;
+
+        if (!data || data.length < 2) return;
+
+        const demographicsTrace = data[1];
+        const isDemographicsVisible = demographicsTrace.visible !== false;
+
+        if (isDemographicsVisible) {
+            key.classList.remove("hidden");
+        } else {
+            key.classList.add("hidden");
+        }
+
+        if (isDemographicsVisible) {
+            outline.classList.remove("hidden");
+        } else {
+            outline.classList.add("hidden");
+        }
+    });
+
+    observer.observe(plot, {
+        childList: true,
+        subtree: true,
+        attributes: true
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const plot = document.querySelector('.js-plotly-plot');
+    const key = document.getElementById("archetype-key-container");
+    const outlineContainer = document.getElementById("outline-btn-container");
+    const outlineCheckbox = document.getElementById("outline-toggle-checkbox");
+
+    if (!plot || !key || !outlineContainer || !outlineCheckbox) return;
+
+    const DEMO_INDEX = 1;
+
+    function setOutline(state) {
+        Plotly.restyle(plot, {
+            "marker.line.width": state ? 2 : 0
+        }, [DEMO_INDEX]);
+    }
+
+    outlineCheckbox.addEventListener("change", function () {
+        setOutline(this.checked);
+    });
+
+    const observer = new MutationObserver(() => {
+
+        const data = plot.data;
+        if (!data || data.length < 2) return;
+
+        const isDemographicsVisible = data[1].visible !== false;
+
+        if (isDemographicsVisible) {
+            key.classList.remove("hidden");
+            outlineContainer.classList.remove("hidden");
+        } else {
+            key.classList.add("hidden");
+            outlineContainer.classList.add("hidden");
+        }
+    });
+
+    observer.observe(plot, {
+        childList: true,
+        subtree: true,
+        attributes: true
+    });
+
+    setOutline(false);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const key = document.getElementById("archetype-key-container");
+    const btn = document.getElementById("key-minimise-btn");
+
+    if (!key || !btn) return;
+
+    btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        key.classList.toggle("minimised");
+
+        btn.innerText = key.classList.contains("minimised") ? "+" : "–";
+    });
+
+});
+
+</script>
+
+</body>
+</html>
