@@ -81,7 +81,7 @@
 
             background: #1f2937;
             color: white;
-            font-size: 0.9rem;
+            font-size: 16px;
             font-style: normal;
             font-weight: normal;
             line-height: 1.4;
@@ -109,9 +109,10 @@
             border-color: #1f2937 transparent transparent transparent;
         }
 
-        .tooltip-term:hover .tooltip-text {
-            opacity: 1;
-            visibility: visible;
+        .tooltip-term:hover .tooltip-text,
+        .tooltip-term.active .tooltip-text {
+            opacity:1;
+            visibility:visible;
         }
 
     </style>
@@ -209,6 +210,36 @@ document.getElementById("start-btn").addEventListener("click", async function ()
     if (data.success) {
         window.location.href = '/game'
     }
+});
+
+</script>
+
+<script>
+
+
+// Tooltip handling for mobile devices (e.g. safari)
+document.querySelectorAll(".tooltip-term").forEach(term => {
+
+    term.addEventListener("click", function (e) {
+
+        e.stopPropagation();
+
+        document.querySelectorAll(".tooltip-term").forEach(t => {
+            if (t !== term)
+                t.classList.remove("active");
+        });
+
+        term.classList.toggle("active");
+    });
+
+});
+
+document.addEventListener("click", function () {
+
+    document.querySelectorAll(".tooltip-term").forEach(term => {
+        term.classList.remove("active");
+    });
+
 });
 
 </script>

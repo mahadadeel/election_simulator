@@ -256,20 +256,6 @@
 
 <script>
 
-// Resize plotly graphs
-
-window.addEventListener("load", function () {
-
-    setTimeout(() => {
-
-        document.querySelectorAll(".js-plotly-plot").forEach(div => {
-            Plotly.Plots.resize(div);
-        });
-
-    }, 50);
-
-});
-
 // Code for beginning count
 let countingInterval = null;
 

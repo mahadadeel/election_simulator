@@ -306,6 +306,7 @@ class GraphRenderer:
             yaxis=dict(visible=False),
 
             autosize=True,
+            width=600,
             height=600,
             margin=dict(
                 l=0,
@@ -757,7 +758,8 @@ class GraphRenderer:
             yaxis=dict(visible=False),
 
             autosize=True,
-            height=500,
+            height=600,
+            width=600,
 
             margin=dict(
                 l=0,
