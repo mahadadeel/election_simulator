@@ -1,10 +1,6 @@
 from flask import Flask, render_template, jsonify, request, session
 import plotly.io as pio
 
-import logging
-import webbrowser
-from threading import Timer
-
 import os
 
 from core.election_game import ElectionGame
@@ -287,15 +283,9 @@ def reset_game():
         "success": True
     })
 
-log = logging.getLogger("werkzeug")
-log.setLevel(logging.ERROR)
-
-def open_browser():
-    webbrowser.open("http://127.0.0.1:5000/")
 
 # Initiate software
 if __name__ == "__main__":
-    Timer(1, open_browser).start()
     app.run(
         debug=False,
         host="0.0.0.0",
