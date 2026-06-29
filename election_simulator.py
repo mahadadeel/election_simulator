@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, session
 import plotly.io as pio
 
 import logging
@@ -7,11 +7,28 @@ from threading import Timer
 
 from core.election_game import ElectionGame
 
+import uuid
+
+# Store games
+games = {}
+
 # Define game
 election_game = ElectionGame()
 
 # Define app
 app = Flask(__name__)
+
+# Function to manage games
+def get_game():
+    # If first visit
+    if "session_id" not in session:
+        session["session_id"] = str(uuid.uuid4())
+    
+    sid = session["session_id"]
+
+    # Find sid in games
+    if sid not in games:
+        games[sid] = ElectionGame()
 
 # Home page
 @app.route("/")
@@ -24,12 +41,14 @@ def index():
 # Main game loop
 @app.route("/game")
 def game():
+
+    game = get_game()
     
     # Run election
-    election_game.run_election()
+    game.run_election()
 
     # Get map figure for current turn
-    fig = election_game.get_turn_map_figure()
+    fig = game.get_turn_map_figure()
 
     # Convert graph to html
     graph_html = pio.to_html(
@@ -43,8 +62,8 @@ def game():
     )
 
     # Render voteshare and trendline as html
-    voteshare_html = election_game.renderer.render_voteshare_html()
-    trend_fig = election_game.renderer.create_voteshare_trend_graph()
+    voteshare_html = game.renderer.render_voteshare_html()
+    trend_fig = game.renderer.create_voteshare_trend_graph()
 
     # Convert trend to html
     trend_html = pio.to_html(
@@ -58,8 +77,8 @@ def game():
     )
 
     # Render parliament map
-    fig_parliament = election_game.renderer.create_parliament_graph(
-        margin_tolerance = 5 if election_game.turn > 1 else 0
+    fig_parliament = game.renderer.create_parliament_graph(
+        margin_tolerance = 5 if game.turn > 1 else 0
     )
 
     # To HTML
@@ -74,10 +93,10 @@ def game():
     )
 
     # Archetype key
-    archetype_key_html = election_game.renderer.render_archetype_key()
+    archetype_key_html = game.renderer.render_archetype_key()
 
     # Turn data
-    turn_data = election_game.get_turn_data()
+    turn_data = game.get_turn_data()
 
     # Return all
     return render_template(
@@ -87,8 +106,8 @@ def game():
         trend_plot=trend_html,
         parliament=parliament_html,
         archetype_key=archetype_key_html,
-        turn=election_game.turn,
-        max_turn=election_game.TURN_MAX,
+        turn=game.turn,
+        max_turn=game.TURN_MAX,
         turn_data=turn_data
     )
 
@@ -96,12 +115,14 @@ def game():
 @app.route("/submit_choice", methods=["POST"])
 def submit_choice():
 
+    game = get_game()
+
     # Get data
     data = request.json
     choice = data["choice"]
 
     # Handle choice and get advisor response
-    advisor_feedback = election_game.handle_choice(choice)
+    advisor_feedback = game.handle_choice(choice)
 
     # Return
     return jsonify({
@@ -112,23 +133,28 @@ def submit_choice():
 # Stepping voteshare
 @app.route("/step", methods=["POST"])
 def step():
+
+    game = get_game()
+
     # Move to next election step
-    done = election_game.next_election_step()
+    done = game.next_election_step()
 
     # Return
     return jsonify({
         "done": done,
-        "turn": election_game.turn,
-        "max_turn": election_game.TURN_MAX,
-        "voteshare": election_game.current_voteshare
+        "turn": game.turn,
+        "max_turn": game.TURN_MAX,
+        "voteshare": game.current_voteshare
     })
 
 # Election page
 @app.route("/election")
 def election():
 
+    game = get_game()
+
     # Parliament figure
-    fig = election_game.renderer.plot_final_seats(
+    fig = game.renderer.plot_final_seats(
         map_title="",
         margin_tolerance=999
     )
@@ -145,7 +171,7 @@ def election():
     )
 
     # Chart and running total
-    chart, running_total, _ = election_game.renderer.results_parliament_graph(
+    chart, running_total, _ = game.renderer.results_parliament_graph(
         margin_tolerance=999
     )
 
@@ -159,7 +185,7 @@ def election():
         }
     )
 
-    voteshare = election_game.renderer.live_voteshare_graph(running_total)
+    voteshare = game.renderer.live_voteshare_graph(running_total)
 
     voteshare_html = pio.to_html(
         voteshare,
@@ -181,16 +207,22 @@ def election():
 # Counting votes in result page
 @app.route("/count_votes", methods=["POST"])
 def count_votes():
+
+    game = get_game()
+
     # Count votes
     return jsonify(
-        election_game.count_next_votes()
+        game.count_next_votes()
     )
 
 # Conclusion page
 @app.route("/conclusion")
 def conclusion():
+
+    game = get_game()
+
     # Seats figure
-    fig_seats = election_game.renderer.plot_seats_results(map_title="")
+    fig_seats = game.renderer.plot_seats_results(map_title="")
 
     # Convert to html
     seats_html = pio.to_html(
@@ -204,7 +236,7 @@ def conclusion():
     )
 
     # Parliament
-    fig_parliament = election_game.renderer.create_parliament_graph(
+    fig_parliament = game.renderer.create_parliament_graph(
         margin_tolerance=0
     )
 
@@ -219,13 +251,13 @@ def conclusion():
     )
 
     # Table
-    table_html = election_game.renderer.render_results_table_html()
+    table_html = game.renderer.render_results_table_html()
 
     # Outcome title and text
-    title, text = election_game.get_outcome_text()
+    title, text = game.get_outcome_text()
 
     # Archetype key
-    archetype_key_html = election_game.renderer.render_archetype_key()
+    archetype_key_html = game.renderer.render_archetype_key()
 
     return render_template(
         "conclusion.html",
@@ -240,7 +272,10 @@ def conclusion():
 # Creating a new game
 @app.route("/reset_game", methods=["POST"])
 def reset_game():
-    election_game.new_game()
+
+    game = get_game()
+
+    game.new_game()
 
     return jsonify({
         "success": True
