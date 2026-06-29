@@ -429,6 +429,20 @@ window.addEventListener("load", function () {
     window.scrollTo(0, 0);
 });
 
+// Resize plotly graphs
+
+window.addEventListener("load", function () {
+
+    setTimeout(() => {
+
+        document.querySelectorAll(".js-plotly-plot").forEach(div => {
+            Plotly.Plots.resize(div);
+        });
+
+    }, 50);
+
+});
+
 </script>
 
 <script>
