@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request, session
+from flask import Flask, render_template, jsonify, request, session, redirect, url_for
 import plotly.io as pio
 
 import os
@@ -21,7 +21,7 @@ app.config["SECRET_KEY"] = os.getenv(
 )
 
 # Function to manage games
-def get_game():
+def _get_game():
     # If first visit
     if "session_id" not in session:
         session["session_id"] = str(uuid.uuid4())
@@ -33,6 +33,14 @@ def get_game():
         games[sid] = ElectionGame()
     
     return games[sid]
+
+# Function to validate if user has finished game
+def _validate_game(game):
+    # Check turn
+    # If less than or equal to max turn, then return False
+    if game.turn <= game.TURN_MAX:
+        return False
+    return True
 
 # Home page
 @app.route("/")
@@ -46,7 +54,14 @@ def index():
 @app.route("/game")
 def game():
 
-    game = get_game()
+    game = _get_game()
+
+    # Return user to 'election' page if they completed
+    validation = _validate_game(game)
+    
+    # If player has completed game, redirect to game
+    if validation:
+        return redirect(url_for("election"))
     
     # Run election
     game.run_election()
@@ -119,7 +134,7 @@ def game():
 @app.route("/submit_choice", methods=["POST"])
 def submit_choice():
 
-    game = get_game()
+    game = _get_game()
 
     # Get data
     data = request.json
@@ -138,7 +153,7 @@ def submit_choice():
 @app.route("/step", methods=["POST"])
 def step():
 
-    game = get_game()
+    game = _get_game()
 
     # Move to next election step
     done = game.next_election_step()
@@ -155,7 +170,14 @@ def step():
 @app.route("/election")
 def election():
 
-    game = get_game()
+    game = _get_game()
+
+    # Return user to 'game' page if they haven't completed
+    validation = _validate_game(game)
+    
+    # If player hasnt completed game, redirect to game
+    if not validation:
+        return redirect(url_for("game"))
 
     # Parliament figure
     fig = game.renderer.plot_final_seats(
@@ -212,7 +234,7 @@ def election():
 @app.route("/count_votes", methods=["POST"])
 def count_votes():
 
-    game = get_game()
+    game = _get_game()
 
     # Count votes
     return jsonify(
@@ -223,7 +245,14 @@ def count_votes():
 @app.route("/conclusion")
 def conclusion():
 
-    game = get_game()
+    game = _get_game()
+
+    # Return user to 'game' page if they haven't completed
+    validation = _validate_game(game)
+    
+    # If player hasnt completed game, redirect to game
+    if not validation:
+        return redirect(url_for("game"))
 
     # Seats figure
     fig_seats = game.renderer.plot_seats_results(map_title="")
@@ -277,7 +306,7 @@ def conclusion():
 @app.route("/reset_game", methods=["POST"])
 def reset_game():
 
-    game = get_game()
+    game = _get_game()
 
     game.new_game()
 
