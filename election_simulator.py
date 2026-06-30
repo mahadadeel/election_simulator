@@ -2,6 +2,8 @@ from flask import Flask, render_template, jsonify, request, session, redirect, u
 import plotly.io as pio
 
 import os
+from dotenv import load_dotenv
+import time
 
 from core.election_game import ElectionGame
 
@@ -10,29 +12,56 @@ import uuid
 # Store games
 games = {}
 
+GAME_TIMEOUT = 60 * 60      # 1 hour
+CLEANUP_INTERVAL = 300      # run cleanup every 5 minutes
+
+_last_cleanup = 0
+
 # Define game
 election_game = ElectionGame()
 
 # Define app
 app = Flask(__name__)
-app.config["SECRET_KEY"] = os.getenv(
-    "SECRET_KEY",
-    "development-secret-key"
+
+load_dotenv()
+
+# Config
+secret = os.getenv("SECRET_KEY")
+if not secret:
+    raise RuntimeError("SECRET_KEY environment variable is required")
+
+app.config["SECRET_KEY"] = secret
+
+app.config.update(
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_SAMESITE="Lax",
 )
+
+app.config["MAX_CONTENT_LENGTH"] = 1024 * 16
 
 # Function to manage games
 def _get_game():
+    # Occassionally clean up expired games
+    maybe_cleanup_games()
+
     # If first visit
     if "session_id" not in session:
         session["session_id"] = str(uuid.uuid4())
-    
+
     sid = session["session_id"]
 
-    # Find sid in games
+    # Add new game
     if sid not in games:
-        games[sid] = ElectionGame()
-    
-    return games[sid]
+        games[sid] = {
+            "game": ElectionGame(),
+            "last_seen": time.time()
+        }
+
+    # Update last seen
+    games[sid]["last_seen"] = time.time()
+
+    return games[sid]["game"]
 
 # Function to validate if user has finished game
 def _validate_game(game):
@@ -41,6 +70,70 @@ def _validate_game(game):
     if game.turn <= game.TURN_MAX:
         return False
     return True
+
+# Function to automatically remove inactive games
+def cleanup_games():
+    now = time.time()
+
+    expired = [
+        sid
+        for sid, game_data in games.items()
+        if now - game_data["last_seen"] > GAME_TIMEOUT
+    ]
+
+    for sid in expired:
+        del games[sid]
+
+def maybe_cleanup_games():
+    global _last_cleanup
+
+    now = time.time()
+
+    if now - _last_cleanup >= CLEANUP_INTERVAL:
+        cleanup_games()
+        _last_cleanup = now
+
+# Validate JSON
+def get_json_field(field, expected_type):
+
+    data = request.get_json(silent=True)
+
+    if not isinstance(data, dict):
+        return None, (
+            jsonify(
+                {
+                    "success": False,
+                    "error": "Invalid JSON"
+                }
+            ),
+            400
+        )
+
+    if field not in data:
+        return None, (
+            jsonify(
+                {
+                    "success": False,
+                    "error": f"Missing '{field}'"
+                }
+            ),
+            400
+        )
+
+    value = data[field]
+
+    if not isinstance(value, expected_type):
+        return None, (
+            jsonify(
+                {
+                    "success": False,
+                    "error": f"'{field}' has invalid type"
+                }
+            ),
+            400
+        )
+
+    return value, None
 
 # Home page
 @app.route("/")
@@ -137,13 +230,13 @@ def submit_choice():
     game = _get_game()
 
     # Get data
-    data = request.json
-    choice = data["choice"]
+    choice, error = get_json_field("choice", int)
 
-    # Handle choice and get advisor response
+    if error:
+        return error
+
     advisor_feedback = game.handle_choice(choice)
 
-    # Return
     return jsonify({
         "success": True,
         "advisor_feedback": advisor_feedback
