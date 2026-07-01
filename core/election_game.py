@@ -356,7 +356,7 @@ class ElectionGame:
         self,
         flat=1.0,
         exp=0.6,
-        steep=1.6
+        steep=1.7
     ):
 
         # Iterate over voteshare (indices)

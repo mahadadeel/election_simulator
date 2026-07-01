@@ -106,7 +106,7 @@ class MapGenerator:
                         "Alternative Party": 0.3,
                         "Conservative Party": -0.5,
                         "Liberal Party": 0.2,
-                        "Green Party": -0.2
+                        "Green Party": 0
                     }
                 )
             )
@@ -166,10 +166,10 @@ class MapGenerator:
                     education = random.randint(2,8)/10,
 
                     bias = {
-                        "Alternative Party": -0.3,
+                        "Alternative Party": -0.4,
                         "Conservative Party": 0.5,
                         "Liberal Party": 0,
-                        "Green Party": -0.3
+                        "Green Party": -0.2
                     }
                 )
             )
@@ -188,9 +188,9 @@ class MapGenerator:
 
                     bias = {
                         "Alternative Party": 0,
-                        "Conservative Party": 0.1,
-                        "Liberal Party": 0,
-                        "Green Party": -0.1
+                        "Conservative Party": 0.2,
+                        "Liberal Party": 0.1,
+                        "Green Party": 0
                     }
                 )
             )
@@ -209,9 +209,9 @@ class MapGenerator:
 
                     bias = {
                         "Alternative Party": 0.2,
-                        "Conservative Party": 0.4,
+                        "Conservative Party": 0.3,
                         "Liberal Party": -0.4,
-                        "Green Party": -0.2
+                        "Green Party": 0.2
                     }
                 )
             )
@@ -232,7 +232,7 @@ class MapGenerator:
                         "Alternative Party": 0.3,
                         "Conservative Party": 0.3,
                         "Liberal Party": -0.2,
-                        "Green Party": -0.8
+                        "Green Party": -0.4
                     }
                 )
             )
@@ -253,7 +253,7 @@ class MapGenerator:
                         "Alternative Party": 0,
                         "Conservative Party": 0.5,
                         "Liberal Party": -0.3,
-                        "Green Party": -0.5
+                        "Green Party": -0.8
                     }
                 )
             )
