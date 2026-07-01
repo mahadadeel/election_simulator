@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Can You Win An Election?</title>
+    <title>Can You Win This Parliamentary Election?</title>
+
+    <link rel="icon" type="image/png" href="/static/icon.png">
 
     <style>
         body {
@@ -124,8 +126,16 @@
 
     <div class="panel">
 
-        <h1 style="margin: 5px">Can You Win This Parliamentary Election?</h1>
-        <h3 style="margin: 5px; padding-bottom: 15px"><i>An Election Simulator Modelling Structural Inequality and the Rise of Political Extremism</i></h3>
+        <img
+            src="{{ url_for('static', filename='logo.png') }}"
+            alt="Can You Win This Parliamentary Election?"
+            style="
+            margin: 5px;
+            width: auto;
+            height: 200px;
+            "
+        >
+        <h3 style="margin: 5px; padding-bottom: 15px"><i>An Election Simulator<br>Critiquing Structural Inequality<br>and the Rise of Political Extremism<br>against the Status Quo</i></h3>
 
         <hr>
 
